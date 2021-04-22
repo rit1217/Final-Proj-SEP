@@ -154,3 +154,4 @@ class Ui_Form(object):
         self.signButton.setText(QCoreApplication.translate("Form", u"Sign up", None))
         self.Spoon.setText("")
     # retranslateUi
+

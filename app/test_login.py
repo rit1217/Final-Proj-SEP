@@ -3,7 +3,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBox
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
-from UI.loginimport Ui_Form
+from UI.login import Ui_Form
 
 class Login(QWidget):
     def __init__(self):
