@@ -6,3 +6,6 @@ class Ingredient:
         self.unit = unit
         self.calories = calories
         self.info = (fdc_id, name, qty, unit, calories)
+
+    def getIngredientInfo( self ):
+        return self.info

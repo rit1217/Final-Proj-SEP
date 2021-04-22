@@ -13,15 +13,26 @@ class IngredientModel:
         print( api_req)
         response = requests.get(api_req)
         # print( json.dumps(response.json()["foods"], indent = 4)) 
+        result = []
         for i in response.json()["foods"]:
-            print( i["description"] + " " + i["brandOwner"] + " : ", end = "" )
+            temp = i["description"] + " (" + i["brandOwner"] + ") : "
             for j in i["foodNutrients"]:
                 if j["nutrientName"] == "Energy":
                     if (j["unitName"] == "kJ"):
-                        print(j["value"] * 0.239, "KCAL")
+                        temp = temp + j["value"] * 0.239, "KCAL"
                     else:
-                        print( j["value"], j["unitName"])
+                        temp = temp + "%d %s" %(j["value"], j["unitName"])
                     break
+            result.append( temp )
+            print( temp )
+        return result
+
+    def insertIngredientInRec( self, ingredients ):
+        for i in ingredients:
+            info = i.getIngredientInfo()
+            CURSOR.execute( "INSERT INTO Ingredient_Recipe(fdc_id, INGREDIENT_NAME, RECIPE_ID, QTY, UNIT_NAME, CALORIES) VALUES(?,?,?,?,?,?)",
+            (info))
+            CONNECTION.commit()
 
 INGREDIENT_MODEL = IngredientModel()
 

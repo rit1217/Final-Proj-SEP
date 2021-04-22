@@ -8,7 +8,7 @@ class RecipeModel:
         
     def insertRecipe( self, newRecipe ):
         info = newRecipe.getUserInfo()
-        CURSOR.execute( "INSERT INTO User(RECIPE_ID, NAME, CALORIES, COOKING_STEP, CREATOR, IMAGE) VALUES(?,?,?,?,?,?)",
+        CURSOR.execute( "INSERT INTO Recipe(RECIPE_ID, NAME, CALORIES, COOKING_STEP, CREATOR, IMAGE) VALUES(?,?,?,?,?,?)",
         (info))
         CONNECTION.commit()
 
