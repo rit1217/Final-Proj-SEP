@@ -1,32 +1,35 @@
 import sqlite3
 from passlib.hash import pbkdf2_sha256
-
+from User import User
 
 class UserModel:
     def __init__(self):
         try:
-            conn = sqlite3.connect("app/databasemodel/main_data.db")
+            self.conn = sqlite3.connect("app/databasemodel/main_data.db")
         except:
             print ("Cannot connect to the database.")
-        self.cursor = conn.cursor()
-        self.cursor.execute( "SELECT USERNAME FROM Recipe")
-        print( "\n", c.fetchall() )
-        conn.commit()
-        conn.close()
-
-    @staticmethod
+        self.cursor = self.conn.cursor()
+        
     def insertUser( self, newUser ):
-        username = newUser.getUsername()
-        password = pbkdf2_sha256.hash( newUser.getPassword())
-        firstName = newUser.getFirstName()
-        lastName = newUser.getLastName()
-        height = newUser.getHeight()
-        weight = newUser.getWeight()
-        birthDate = newUser.getBirthDate()
-        gender = newUser.getGender()
-        self.cursor.execute( "INSERT INTO User(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, HEIGHT, WEIGHT, BIRTHDATE, GENDER) VALUE(?,?,?,?,?,?,?,?)",
-        (username, password, firstName, lastName, height, weight, birthDate, gender))
+        info = newUser.getUserInfo()
+        self.cursor.execute( "INSERT INTO User(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, HEIGHT, WEIGHT, BIRTHDATE, GENDER) VALUES(?,?,?,?,?,?,?,?)",
+        (info))
+        self.conn.commit()
+
+    def getUser( self, username ):
+        statement = "SELECT * FROM User WHERE USERNAME = '%s'" %(username)
+        self.cursor.execute( statement)
+        user_info = self.cursor.fetchone()
+        self.conn.commit()
+        return User( user_info )
+        
+    def closeConnection( self ):
+        self.conn.close()
 
 if __name__ == "__main__":
-    temp = pbkdf2_sha256.hash( "eiei")
-    print( pbkdf2_sha256.verify( "eiei", temp ) )
+    u = User(("rit", "pwd", "Phurit", "Warapattnapong", 181, 73, "11/7/2001", "Male"))
+    um = UserModel()
+    userfromdb = um.getUser( "rit" )
+    print( userfromdb )
+    um.closeConnection()
+    print( pbkdf2_sha256.verify( u.getPassword(), userfromdb.getPassword() ) )
