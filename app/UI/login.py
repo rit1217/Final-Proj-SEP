@@ -34,7 +34,7 @@ class Ui_Form(object):
         self.passwordEdit.setGeometry(QRect(160, 140, 113, 21))
         self.passwordEdit.setStyleSheet(u"QLineEdit{\n"
 "border:2px solid rgb(255, 201, 195);\n"
-"color:black;\n"
+"color:grey;\n"
 "border-radius:10px;\n"
 "background-color: rgb(255, 187, 178);\n"
 "}\n"
@@ -55,7 +55,7 @@ class Ui_Form(object):
         self.userEdit.setFont(font)
         self.userEdit.setStyleSheet(u"QLineEdit{\n"
 "border:2px solid rgb(255, 201, 195);\n"
-"color:black;\n"
+"color:grey;\n"
 "border-radius:10px;\n"
 "background-color: rgb(255, 187, 178);\n"
 "}\n"

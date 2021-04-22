@@ -3,23 +3,20 @@ from PySide6.QtWidgets import *
 from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBox
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
-from login import Ui_Form
+from UI.login import Ui_Form
 
 class Login(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-        try:
-            self.ui.Spoon.setPixmap(QPixmap("spoon.png")) 
-        except:
-            print( "cannot load image")            
+        self.ui.Spoon.setPixmap(QPixmap("app/UI/spoon.png"))
         self.ui.Spoon.setScaledContents(True)
-        self.ui.fork.setPixmap(QPixmap("fork.png"))
+        self.ui.fork.setPixmap(QPixmap("app/UI/fork.png"))
         self.ui.fork.setScaledContents(True)
-        self.ui.usernameLabel.setPixmap(QPixmap("id-card.png"))
+        self.ui.usernameLabel.setPixmap(QPixmap("app/UI/id-card.png"))
         self.ui.usernameLabel.setScaledContents(True)
-        self.ui.passwordLabel.setPixmap(QPixmap("padlock.png"))
+        self.ui.passwordLabel.setPixmap(QPixmap("app/UI/padlock.png"))
         self.ui.passwordLabel.setScaledContents(True)
         
         self.ui.signButton.clicked.connect(self.clicked)
