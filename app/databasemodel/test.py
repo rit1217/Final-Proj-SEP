@@ -1,10 +1,8 @@
 import sqlite3
-try:
-    conn = sqlite3.connect("../main_data.db")
-except:
-    print( "Cannot connect to the database.")   
+
+conn = sqlite3.connect("app/databasemodel/main_data.db")
 c = conn.cursor()
-c.execute( "SELECT USERNAME FROM User")
+c.execute( "SELECT USERNAME FROM Recipe")
 print( "\n", c.fetchall() )
 conn.commit()
 conn.close()
