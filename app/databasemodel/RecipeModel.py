@@ -1,6 +1,6 @@
 import sqlite3
 from Recipe import Recipe
-from modelConstant import *
+from databasemodel.modelConstant import *
 
 class RecipeModel:
     def __init__(self):

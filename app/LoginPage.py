@@ -19,8 +19,10 @@ class Login(QWidget):
         self.ui.usernameLabel.setScaledContents(True)
         self.ui.passwordLabel.setPixmap(QPixmap("app/UI/padlock.png"))
         self.ui.passwordLabel.setScaledContents(True)
-        self.ui.signButton.clicked.connect(self.signup)
-        self.ui.logButton.clicked connect( self.login )
+        # self.ui.signButton.clicked.connect(self.signup)
+        # self.ui.logButton.clicked connect( self.login )
+        self.setFixedSize( 455, 305 )
+        self.setStyleSheet("background-color: rgb(255, 136, 38)")
 
     def signup(self):
         print("hi")

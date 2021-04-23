@@ -128,7 +128,6 @@ class Ui_Form(object):
         self.sexComboBox = QComboBox(self.widget)
         self.sexComboBox.addItem("")
         self.sexComboBox.addItem("")
-        self.sexComboBox.addItem("")
         self.sexComboBox.setObjectName(u"sexComboBox")
         self.sexComboBox.setGeometry(QRect(60, 170, 121, 20))
         self.sexComboBox.setStyleSheet(u"\n"

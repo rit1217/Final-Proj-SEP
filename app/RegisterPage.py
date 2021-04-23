@@ -9,10 +9,22 @@ class Register(QWidget):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-       
-    def clickevent(self):
-        self.ui.label.setText("Have click!!!!!")
-        
+        self.setFixedSize( 455, 305 )
+        self.setStyleSheet("background-color: rgb(255, 136, 38)")
+        self.ui.signupButton.clicked.connect( self.registerConfirm )
+
+    def clearUI(self):
+        self.ui.usernameLineEdit.setText("")
+        self.ui.passwordLineEdit.setText("")
+        self.ui.sexComboBox.setCurrentIndex(0)
+        self.ui.dateEdit.setDate( QDate.currentDate() )
+        self.ui.heightLineEdit.setText("")        
+        self.ui.weightLineEdit.setText("")
+        self.ui.nameLineEdit.setText("")
+        self.ui.surnameLineEdit.setText("")
+
+    def registerConfirm( self ):
+        pass
 
 
 if __name__ == "__main__":
