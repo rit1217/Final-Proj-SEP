@@ -1,7 +1,7 @@
 import sqlite3
 from passlib.hash import pbkdf2_sha256
-from User import User
-from modelConstant import *
+from databasemodel.User import User
+from databasemodel.modelConstant import *
 
 class UserModel:
     def __init__(self):

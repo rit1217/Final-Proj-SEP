@@ -13,7 +13,6 @@ class MainWindow( QMainWindow ):
         QMainWindow.__init__( self, None )
         self.setFixedSize( 455, 305)
         self.setStyleSheet("background-color: rgb(255, 136, 38)")
-        CONNECT_DB()
         self.login = Login()
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
@@ -27,7 +26,6 @@ class MainWindow( QMainWindow ):
     def login_loginButton( self ):
         usr_ent_username = self.login.getUserEnter()["username"]
         usr_ent_password = self.login.getUserEnter()["password"]
-        print( type(usr_ent_password))
         user_info = USER_MODEL.getUser( usr_ent_username )
         message = QMessageBox( None)
 
