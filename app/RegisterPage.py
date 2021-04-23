@@ -20,4 +20,5 @@ if __name__ == "__main__":
     w = Register()
     w.setFixedSize(455,305)
     w.show()
+    print( QDate( 2021, 2, 10).toString("dd/MM/yyyy") )
     sys.exit(app.exec_())

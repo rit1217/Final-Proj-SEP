@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBo
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.login import Ui_Form
+from databasemodel.UserModel import *
 
 class Login(QWidget):
     def __init__(self):
@@ -18,11 +19,10 @@ class Login(QWidget):
         self.ui.usernameLabel.setScaledContents(True)
         self.ui.passwordLabel.setPixmap(QPixmap("app/UI/padlock.png"))
         self.ui.passwordLabel.setScaledContents(True)
-        
-        self.ui.signButton.clicked.connect(self.clicked)
-    
+        self.ui.signButton.clicked.connect(self.signup)
+        self.ui.logButton.clicked connect( self.login )
 
-    def clicked(self):
+    def signup(self):
         print("hi")
 
 
