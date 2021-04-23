@@ -13,6 +13,7 @@ class MainWindow( QMainWindow ):
         QMainWindow.__init__( self, None )
         self.setFixedSize( 455, 305)
         self.setStyleSheet("background-color: rgb(255, 136, 38)")
+        CONNECT_DB()
         self.login = Login()
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )

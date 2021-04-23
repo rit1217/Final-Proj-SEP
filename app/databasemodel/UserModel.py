@@ -1,7 +1,7 @@
 import sqlite3
 from passlib.hash import pbkdf2_sha256
-from databasemodel.User import User
-from databasemodel.modelConstant import *
+from User import User
+from modelConstant import *
 
 class UserModel:
     def __init__(self):
@@ -24,6 +24,7 @@ USER_MODEL = UserModel()
 
 if __name__ == "__main__":
     u = User(("rrrit", "pass", "Phurit", "Warapattnapong", 181, 73, "11/7/2001", "Male"))
+    USER_MODEL = UserModel()
     USER_MODEL.insertUser( u )
     print( userfromdb )
     print( pbkdf2_sha256.verify( u.getPassword(), userfromdb.getPassword()))
