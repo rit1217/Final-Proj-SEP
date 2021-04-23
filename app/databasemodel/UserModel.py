@@ -17,6 +17,7 @@ class UserModel:
         CURSOR.execute( statement)
         user_info = CURSOR.fetchone()
         CONNECTION.commit()
+        if user_info is None : return None
         return User( user_info )
 
 USER_MODEL = UserModel()
