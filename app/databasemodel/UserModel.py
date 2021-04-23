@@ -9,7 +9,7 @@ class UserModel:
         
     def insertUser( self, newUser ):
         info = newUser.getUserInfo()
-        CURSOR.execute( "INSERT INTO User(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, HEIGHT, WEIGHT, BIRTHDATE, GENDER) VALUES(?,?,?,?,?,?,?,?)",(info))
+        CURSOR.execute( "INSERT INTO User(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, HEIGHT, WEIGHT, BIRTHDATE, GENDER) VALUES(?,?,?,?,?,?,?,?)",info)
         CONNECTION.commit()
 
     def getUser( self, username ):
@@ -23,8 +23,7 @@ class UserModel:
 USER_MODEL = UserModel()
 
 if __name__ == "__main__":
-    USER_MODEL = User(("rit", "pwd", "Phurit", "Warapattnapong", 181, 73, "11/7/2001", "Male"))
-    USER_MODEL = UserModel()
-    userfromdb = USER_MODEL.getUser( "rit" )
+    u = User(("rrrit", "pass", "Phurit", "Warapattnapong", 181, 73, "11/7/2001", "Male"))
+    USER_MODEL.insertUser( u )
     print( userfromdb )
     print( pbkdf2_sha256.verify( u.getPassword(), userfromdb.getPassword()))

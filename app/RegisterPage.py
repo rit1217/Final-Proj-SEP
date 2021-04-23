@@ -3,7 +3,9 @@ from PySide6.QtWidgets import *
 from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBox
 from PySide6.QtCore import *
 from UI.register import Ui_Form
-
+from databasemodel.UserModel import *
+from databasemodel.User import User
+from passlib.hash import pbkdf2_sha256
 class Register(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
@@ -24,7 +26,18 @@ class Register(QWidget):
         self.ui.surnameLineEdit.setText("")
 
     def registerConfirm( self ):
-        pass
+        info = []
+        info.append(self.ui.usernameLineEdit.text())
+        info.append(pbkdf2_sha256.hash(self.ui.passwordLineEdit.text()))
+        info.append(self.ui.nameLineEdit.text())
+        info.append(self.ui.surnameLineEdit.text())
+        info.append(int(self.ui.heightLineEdit.text()))
+        info.append(int(self.ui.weightLineEdit.text()))
+        info.append(self.ui.dateEdit.date().toString("dd/MM/yyyy"))
+        info.append(self.ui.sexComboBox.currentText())
+        info = tuple( info )
+        USER_MODEL.insertUser( User(info) )
+        
 
 
 if __name__ == "__main__":
@@ -34,3 +47,6 @@ if __name__ == "__main__":
     w.show()
     print( QDate( 2021, 2, 10).toString("dd/MM/yyyy") )
     sys.exit(app.exec_())
+
+''' username : rrrit
+pwd : pass '''

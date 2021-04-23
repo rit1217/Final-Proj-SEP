@@ -1,7 +1,7 @@
 import sqlite3
 
 try:
-    CONNECTION = sqlite3.connect("app/databasemodel/main_data.db")
+    CONNECTION = sqlite3.connect("app/databasemodel/main_data.db", timeout=10)
 except:
     print ("Cannot connect to the database.")
 CURSOR = CONNECTION.cursor()
