@@ -23,7 +23,10 @@ class Login(QWidget):
         self.setFixedSize( 455, 305 )
 
     def getUserEnter( self ):
-        return { "username" : self.ui.userEdit.text(), "password" : self.ui.userEdit.text() }
+        return { "username" : self.ui.userEdit.text(), "password" : self.ui.passwordEdit.text() }
+    
+    def clearPassword( self ):
+        self.ui.passwordEdit.setText( "")
 
 
 if __name__ == "__main__":
