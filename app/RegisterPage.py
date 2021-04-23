@@ -49,6 +49,7 @@ class Register(QWidget):
                                 if None not in weight_valid and None not in height_valid:
                                     self.registerConfirm()
                                     message.setText( "Registration complete!")
+                                    self.close()
                                 else:
                                     message.setText("Weight and Height must be integer.")
                             else:
@@ -69,8 +70,8 @@ class Register(QWidget):
         info = []
         info.append(self.ui.usernameLineEdit.text())
         info.append(pbkdf2_sha256.hash(self.ui.passwordLineEdit.text()))
-        info.append(self.ui.nameLineEdit.text())
-        info.append(self.ui.surnameLineEdit.text())
+        info.append(self.ui.nameLineEdit.text()[0].upper() + self.ui.nameLineEdit.text()[1:].lower())
+        info.append(self.ui.surnameLineEdit.text()[0].upper() + self.ui.surnameLineEdit.text()[1:].lower())
         info.append(int(self.ui.heightLineEdit.text()))
         info.append(int(self.ui.weightLineEdit.text()))
         info.append(self.ui.dateEdit.date().toString("dd/MM/yyyy"))
@@ -91,3 +92,6 @@ if __name__ == "__main__":
 
 ''' username : rrrit1
 pwd : pass1234 '''
+
+'''username : eiei123
+pwd : 12345678'''
