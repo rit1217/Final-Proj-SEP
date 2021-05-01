@@ -8,6 +8,7 @@ from RegisterPage import Register
 from MainMenuPage import Mainmenu
 from databasemodel.UserModel import *
 from passlib.hash import pbkdf2_sha256
+from Constant import *
 
 class MainWindow( QMainWindow ):
     def __init__( self ):
@@ -39,6 +40,7 @@ class MainWindow( QMainWindow ):
             message.exec_()
         else:
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
+                CURRENT_USER = user_info
                 self.setFixedSize(557,453)
                 self.setStyleSheet("background-color:rgb(255, 187, 178);")
                 self.setCentralWidget( self.mainmenu )
