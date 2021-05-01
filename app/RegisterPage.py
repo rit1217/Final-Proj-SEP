@@ -34,8 +34,10 @@ class Register(QWidget):
         lname_valid = [re.search( "[a-z,A-Z]", i )for i in self.ui.surnameLineEdit.text()]
         usr_ent_password = self.ui.passwordLineEdit.text()
         pwd_valid = [re.search( "[a-z,A-Z,0-9,_]", i )for i in usr_ent_password]
-        weight_valid = [re.search( "[0-9]", i) for i in self.ui.weightLineEdit.text()]
-        height_valid = [re.search( "[0-9]", i) for i in self.ui.heightLineEdit.text()]
+        usr_ent_weight = self.ui.weightLineEdit.text()
+        usr_ent_height = self.ui.heightLineEdit.text()
+        weight_valid = [re.search( "[0-9]", i) for i in usr_ent_weight]
+        height_valid = [re.search( "[0-9]", i) for i in usr_ent_height]
         
         message = QMessageBox( None )
         if len(usr_ent_password) <= 0 or len(usr_ent_username) <= 0 or len(self.ui.heightLineEdit.text()) <= 0 or len(self.ui.weightLineEdit.text()) <= 0 or len(self.ui.nameLineEdit.text()) <= 0 or len(self.ui.surnameLineEdit.text()) <= 0:
@@ -46,7 +48,7 @@ class Register(QWidget):
                     if len(usr_ent_password) >= 8 and None not in pwd_valid:
                         if usr_ent_password == self.ui.comfirmLineEdit.text():
                             if None not in fname_valid and None not in lname_valid:
-                                if None not in weight_valid and None not in height_valid:
+                                if None not in weight_valid and None not in height_valid and int(usr_ent_weight) > 0 and int(usr_ent_height) > 0:
                                     self.registerConfirm()
                                     message.setText( "Registration complete!")
                                     self.close()
