@@ -5,6 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from LoginPage import Login
 from RegisterPage import Register
+from MainMenuPage import Mainmenu
 from databasemodel.UserModel import *
 from passlib.hash import pbkdf2_sha256
 
@@ -14,10 +15,14 @@ class MainWindow( QMainWindow ):
         self.setFixedSize( 455, 305)
         self.setStyleSheet("background-color: rgb(255, 136, 38)")
         self.login = Login()
+        self.register = Register()
+        self.mainmenu = Mainmenu()
+        self.setup_buttons()
+        self.setCentralWidget( self.login )
+
+    def setup_buttons( self ):
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
-        self.register = Register()
-        self.setCentralWidget( self.login )
 
     def login_signupButton( self ):
         self.register.clearUI()
@@ -34,8 +39,9 @@ class MainWindow( QMainWindow ):
             message.exec_()
         else:
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
-                message.setText( "Login Success!")
-                message.exec_() 
+                self.setFixedSize(557,453)
+                self.setStyleSheet("background-color:rgb(255, 187, 178);")
+                self.setCentralWidget( self.mainmenu )
             else:
                 message.setText( "Wrong password!")
                 self.login.clearPassword()
