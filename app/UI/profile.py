@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 ################################################################################
@@ -26,7 +27,12 @@ class Ui_Form(object):
 "border-radius:20px")
         self.usernameLabel = QLabel(self.widget)
         self.usernameLabel.setObjectName(u"usernameLabel")
-        self.usernameLabel.setGeometry(QRect(90, 20, 61, 16))
+        self.usernameLabel.setAlignment( Qt.AlignCenter)
+        self.usernameLabel.setGeometry(QRect(20, 20, 200, 16))
+        font = QFont()
+        font.setPointSize(20)
+        self.usernameLabel.setFont(font)
+
         self.usernameLabel.setStyleSheet(u"color:black")
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
@@ -144,7 +150,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.usernameLabel.setText(QCoreApplication.translate("Form", u"Username", None))
+        self.usernameLabel.setText(QCoreApplication.translate("Form", u"OOOOOOOOOOOOOO", None))
         self.nameLabel.setText(QCoreApplication.translate("Form", u"Name:", None))
         self.lastnameLabel.setText(QCoreApplication.translate("Form", u"Lastname:", None))
         self.dateLabel.setText(QCoreApplication.translate("Form", u"Date of birth:", None))

@@ -86,6 +86,6 @@ class Mainmenu(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = Mainmenu()
-    w.setFixedSize(557,453)
+    w.setFixedSize(557,457)
     w.show()
     sys.exit(app.exec_())

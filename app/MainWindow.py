@@ -9,6 +9,7 @@ from MainMenuPage import Mainmenu
 from databasemodel.UserModel import *
 from passlib.hash import pbkdf2_sha256
 from Constant import *
+from ProfilePage import Profile
 
 class MainWindow( QMainWindow ):
     def __init__( self ):
@@ -18,12 +19,15 @@ class MainWindow( QMainWindow ):
         self.login = Login()
         self.register = Register()
         self.mainmenu = Mainmenu()
+        self.profile = Profile()
+        self.current_user = None
         self.setup_buttons()
         self.setCentralWidget( self.login )
 
     def setup_buttons( self ):
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
+        self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
 
     def login_signupButton( self ):
         self.register.clearUI()
@@ -40,11 +44,19 @@ class MainWindow( QMainWindow ):
             message.exec_()
         else:
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
-                CURRENT_USER = user_info
-                self.setFixedSize(557,453)
+                self.current_user = user_info
+                self.setFixedSize(557,457)
                 self.setStyleSheet("background-color:rgb(255, 187, 178);")
                 self.setCentralWidget( self.mainmenu )
             else:
                 message.setText( "Wrong password!")
                 self.login.clearPassword()
                 message.exec_()
+
+    def main_profileButton( self ):
+        self.profile.setFixedSize( 557, 457)
+        # self.profile.show()
+        self.setFixedSize(557,457)
+        self.profile.updateProfile( self.current_user )
+        # self.setStyleSheet("background-color:rgb(255, 187, 178);")
+        self.setCentralWidget( self.profile )

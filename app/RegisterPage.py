@@ -43,7 +43,7 @@ class Register(QWidget):
         if len(usr_ent_password) <= 0 or len(usr_ent_username) <= 0 or len(self.ui.heightLineEdit.text()) <= 0 or len(self.ui.weightLineEdit.text()) <= 0 or len(self.ui.nameLineEdit.text()) <= 0 or len(self.ui.surnameLineEdit.text()) <= 0:
             message.setText( "Please fill in all field.")
         else:
-            if None not in username_valid and len(usr_ent_username) >= 4:
+            if None not in username_valid and len(usr_ent_username) >= 4 and len(usr_ent_username) <= 14:
                 if USER_MODEL.getUser( usr_ent_username ) is None:
                     if len(usr_ent_password) >= 8 and None not in pwd_valid:
                         if usr_ent_password == self.ui.comfirmLineEdit.text():
@@ -61,7 +61,7 @@ class Register(QWidget):
                             message.setText( "Password are not matching.")
                         
                     else:
-                        message.setText( "Password must be at least 8 characters long and must not contain special character.")
+                        message.setText( "Password must be at least 8-14 characters long and must not contain special character.")
                 else:
                     message.setText( "Username already existed.")
             else:

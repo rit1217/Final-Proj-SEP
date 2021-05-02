@@ -5,7 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.profile import Ui_Form
 from RecipeInProfWidget import RecipeInProfile
-
+from Constant import *
 
 class Profile(QWidget):
     def __init__(self):
@@ -23,6 +23,8 @@ class Profile(QWidget):
         self.glayout =[]
         self.groupBox =QGroupBox() 
         self.recipeWidget = RecipeInProfile()
+        self.recipeWidget.setStyleSheet(u"background-color:rgb(255, 187, 178)")
+
         self.viewButton =[]
         self.editButton=[]
         for i in range(20):
@@ -32,6 +34,7 @@ class Profile(QWidget):
             self.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
             self.recipeLabel.setScaledContents(True)
             self.recipeLabel.setFixedSize(120,120)
+            self.recipeLabel.setStyleSheet(u"background-color:rgb(255, 187, 178)")
 
 
             self.levelLabel =QLabel("Level:  Easy") 
@@ -81,7 +84,17 @@ class Profile(QWidget):
         self.groupBox.setLayout(self.blayout)
         self.ui.recipeScrollArea.setWidget(self.groupBox)
         self.ui.recipeScrollArea.setStyleSheet("border-radius: 5px")
+        self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)")
         self.ui.recipeScrollArea.setWidgetResizable(True)
+
+    def updateProfile( self, cur_user ):
+        self.ui.usernameLabel.setText(cur_user.getUsername())
+        self.ui.nameLabel_2.setText(cur_user.getFirstName())
+        self.ui.lastnameLabel_2.setText(cur_user.getLastName())
+        self.ui.dateLabel_2.setText(cur_user.getBirthDate())
+        self.ui.genderLabel_2.setText(cur_user.getGender())
+        self.ui.heightLabel_2.setText(str(cur_user.getHeight()))
+        self.ui.weightLabel_2.setText(str(cur_user.getWeight()))
    
         
 
