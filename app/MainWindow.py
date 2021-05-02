@@ -10,6 +10,7 @@ from databasemodel.UserModel import *
 from passlib.hash import pbkdf2_sha256
 from Constant import *
 from ProfilePage import Profile
+from CreateRecipePage import CreateRecipe
 
 class MainWindow( QMainWindow ):
     def __init__( self ):
@@ -20,6 +21,7 @@ class MainWindow( QMainWindow ):
         self.register = Register()
         self.mainmenu = Mainmenu()
         self.profile = Profile()
+        self.createRecipe = CreateRecipe()
         self.current_user = None
         self.setup_buttons()
         self.setCentralWidget( self.login )
@@ -28,6 +30,8 @@ class MainWindow( QMainWindow ):
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
         self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
+        self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
+        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )
 
     def login_signupButton( self ):
         self.register.clearUI()
@@ -60,3 +64,11 @@ class MainWindow( QMainWindow ):
         self.profile.updateProfile( self.current_user )
         # self.setStyleSheet("background-color:rgb(255, 187, 178);")
         self.setCentralWidget( self.profile )
+
+    def main_createButton( self ):
+        self.createRecipe.show()
+    
+    def create_cancelButton( self ):
+        self.createRecipe.close()
+        self.createRecipe = CreateRecipe()
+        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )

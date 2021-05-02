@@ -12,7 +12,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
-import gade_project_rc
+# import gade_project_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -28,7 +28,7 @@ class Ui_Form(object):
         self.picture_label.setAutoFillBackground(False)
         self.picture_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 "border-radius: 15px;")
-        self.picture_label.setPixmap(QPixmap(u":/newPrefix/food.png"))
+        self.picture_label.setPixmap(QPixmap(u"app/UI/food1.png"))
         self.picture_label.setAlignment(Qt.AlignCenter)
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")

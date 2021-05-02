@@ -38,8 +38,6 @@ class Ui_Form(object):
         self.previewLabel.setGeometry(QRect(320, 10, 113, 32))
         self.previewLabel.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
-"padding-top: 5px;\n"
-"color:black;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"

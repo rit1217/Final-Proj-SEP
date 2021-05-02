@@ -24,11 +24,10 @@ class Profile(QWidget):
         self.groupBox =QGroupBox() 
         self.recipeWidget = RecipeInProfile()
         self.recipeWidget.setStyleSheet(u"background-color:rgb(255, 187, 178)")
-
+        self.recipes = []
         self.viewButton =[]
         self.editButton=[]
         for i in range(20):
-
 
             self.recipeLabel =QLabel()
             self.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))

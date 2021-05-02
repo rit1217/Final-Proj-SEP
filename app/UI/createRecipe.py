@@ -12,7 +12,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
-import pic_create_recipe_rc
+# import pic_create_recipe_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -33,20 +33,31 @@ class Ui_Form(object):
         self.ingSearch_lineEdit = QLineEdit(Form)
         self.ingSearch_lineEdit.setObjectName(u"ingSearch_lineEdit")
         self.ingSearch_lineEdit.setGeometry(QRect(120, 200, 151, 21))
-        self.ingSearch_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.ingSearch_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color:black")
         self.search_pushButton = QPushButton(Form)
         self.search_pushButton.setObjectName(u"search_pushButton")
         self.search_pushButton.setGeometry(QRect(270, 200, 21, 21))
-        self.search_pushButton.setStyleSheet(u"image: url(:/newPrefix/searchicon.png);\n"
+        self.search_pushButton.setStyleSheet(u"image: url(app/UI/searchicon.png);\n"
 "background-color: rgb(255, 255, 255);")
         self.pic_pushButton = QPushButton(Form)
         self.pic_pushButton.setObjectName(u"pic_pushButton")
         self.pic_pushButton.setGeometry(QRect(40, 60, 191, 111))
-        self.pic_pushButton.setStyleSheet(u"background-color: rgb(251, 124, 0);")
+        self.pic_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.name_lineEdit = QLineEdit(Form)
         self.name_lineEdit.setObjectName(u"name_lineEdit")
         self.name_lineEdit.setGeometry(QRect(320, 60, 113, 21))
-        self.name_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.name_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color:black")
         self.level_comboBox = QComboBox(Form)
         self.level_comboBox.setObjectName(u"level_comboBox")
         self.level_comboBox.setGeometry(QRect(320, 90, 111, 21))
@@ -57,26 +68,57 @@ class Ui_Form(object):
         self.amount_lineEdit = QLineEdit(Form)
         self.amount_lineEdit.setObjectName(u"amount_lineEdit")
         self.amount_lineEdit.setGeometry(QRect(370, 200, 41, 21))
-        self.amount_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.amount_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color:black")
+
         self.add_pushButton = QPushButton(Form)
         self.add_pushButton.setObjectName(u"add_pushButton")
         self.add_pushButton.setGeometry(QRect(430, 200, 51, 21))
-        self.add_pushButton.setStyleSheet(u"background-color: rgb(252, 123, 0);")
+        self.add_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.label_5 = QLabel(Form)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(40, 240, 81, 16))
         self.instruction_textEdit = QTextEdit(Form)
         self.instruction_textEdit.setObjectName(u"instruction_textEdit")
         self.instruction_textEdit.setGeometry(QRect(120, 250, 361, 141))
-        self.instruction_textEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.instruction_textEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color:black")
+
         self.save_pushButton = QPushButton(Form)
         self.save_pushButton.setObjectName(u"save_pushButton")
         self.save_pushButton.setGeometry(QRect(180, 410, 81, 31))
-        self.save_pushButton.setStyleSheet(u"background-color: rgb(250, 125, 0);")
+        self.save_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.cancel_pushButton = QPushButton(Form)
         self.cancel_pushButton.setObjectName(u"cancel_pushButton")
         self.cancel_pushButton.setGeometry(QRect(290, 410, 81, 31))
-        self.cancel_pushButton.setStyleSheet(u"background-color: rgb(250, 125, 0);")
+        self.cancel_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
 
         self.retranslateUi(Form)
 
