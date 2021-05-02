@@ -122,18 +122,18 @@ class Ui_Form(object):
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(20, 260, 411, 195))
+        self.widget_2.setGeometry(QRect(20, 250, 411, 210))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:15px")
         self.recipeScrollArea = QScrollArea(self.widget_2)
         self.recipeScrollArea.setObjectName(u"recipeScrollArea")
-        self.recipeScrollArea.setGeometry(QRect(30, 20, 361, 175))
+        self.recipeScrollArea.setGeometry(QRect(30, 10, 361, 190))
         self.recipeScrollArea.setStyleSheet(u"background-color:rgb(255, 187, 178);\n"
-"border-radius:3px;")
-        self.recipeScrollArea.setWidgetResizable(True)
+"border-radius:15px;")
+        self.recipeScrollArea.setWidgetResizable(False)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 361, 171))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 361, 150))
         self.recipeScrollArea.setWidget(self.scrollAreaWidgetContents)
         self.piclabel = QLabel(Form)
         self.piclabel.setObjectName(u"piclabel")

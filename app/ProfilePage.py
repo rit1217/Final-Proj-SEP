@@ -20,56 +20,10 @@ class Profile(QWidget):
         formlayout =QFormLayout()
         self.blayout = QHBoxLayout()
         self.vlayout = QVBoxLayout()
-        self.glayout =[]
         self.groupBox =QGroupBox() 
         self.recipes = []
-        self.viewButton =[]
-        self.editButton=[]
         for i in range(20):
             self.recipes.append( RecipeInProfile())
-            self.recipeLabel =QLabel()
-            self.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
-            self.recipeLabel.setScaledContents(True)
-            self.recipeLabel.setFixedSize(120,120)
-            self.recipeLabel.setStyleSheet(u"background-color:rgb(255, 187, 178)")
-
-
-            self.levelLabel =QLabel("Level:  Easy") 
-            self.levelLabel.setFixedSize(120,120)
-            self.levelLabel.setStyleSheet("color:black")
-
-
-            self.viewButton.append(QPushButton("View"))
-            self.viewButton[i].setFixedSize(80,20)
-            self.viewButton[i].setStyleSheet("QPushButton{background-color:rgb(255, 127, 86);\n"
-"border:none;\n"
-"padding-top: 6px;\n"
-"color:black;\n"
-"border-radius: 5px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color:rgb(255, 99, 0)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"	background-color:rgb(255, 43, 14)\n"
-"}")
-
-
-            self.editButton.append(QPushButton("Edit"))
-            self.editButton[i].setFixedSize(80,20)
-            self.editButton[i].setStyleSheet("QPushButton{background-color:rgb(255, 127, 86);\n"
-"border:none;\n"
-"padding-top: 6px;\n"
-"color:black;\n"
-"border-radius: 5px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color:rgb(255, 99, 0)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"	background-color:rgb(255, 43, 14)\n"
-"}")        
-
 
             self.blayout.addWidget(self.recipes[i])
           #  self.glayout.append(QGridLayout())

@@ -22,9 +22,15 @@ class Ui_Form(object):
         self.recipeLabel = QLabel(Form)
         self.recipeLabel.setObjectName(u"recipeLabel")
         self.recipeLabel.setGeometry(QRect(10, 0, 151, 131))
+
+        self.recipenameLabel = QLabel(Form)
+        self.recipenameLabel.setObjectName(u"recipenameLabel")
+        self.recipenameLabel.setGeometry(QRect(210, 30, 120, 20))
+        self.recipenameLabel.setStyleSheet(u"color: black;")
+
         self.levelLabel = QLabel(Form)
         self.levelLabel.setObjectName(u"levelLabel")
-        self.levelLabel.setGeometry(QRect(210, 60, 60, 16))
+        self.levelLabel.setGeometry(QRect(210, 60, 120, 20))
         self.levelLabel.setStyleSheet(u"color: black;")
 
         self.widget = QWidget(Form)
@@ -75,6 +81,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.recipeLabel.setText("")
+        self.recipenameLabel.setText(QCoreApplication.translate("Form", u"Recipe: Name", None))
         self.levelLabel.setText(QCoreApplication.translate("Form", u"Level:", None))
         self.previewLabel.setText(QCoreApplication.translate("Form", u"View recipe", None))
         self.editLabel.setText(QCoreApplication.translate("Form", u"Edit", None))

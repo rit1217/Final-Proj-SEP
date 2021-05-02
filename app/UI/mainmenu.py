@@ -29,8 +29,6 @@ class Ui_Form(object):
         self.searchButton.setGeometry(QRect(20, 10, 31, 31))
         self.searchButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
-"padding-top: 5px;\n"
-"color:black;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -44,8 +42,6 @@ class Ui_Form(object):
         self.searchEdit.setGeometry(QRect(60, 10, 131, 31))
         self.searchEdit.setStyleSheet(u"QLineEdit{\n"
 "border:2px solid rgb(255, 201, 195);\n"
-"color:black;\n"
-"border-radius:10px;\n"
 "background-color: rgb(255, 187, 178);\n"
 "}\n"
 "QLineEdit:hover{\n"
@@ -57,12 +53,12 @@ class Ui_Form(object):
         self.searchEdit.setEchoMode(QLineEdit.Normal)
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(30, 110, 491, 171))
+        self.widget_2.setGeometry(QRect(30, 110, 491, 175))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px")
         self.recipemainScrollArea = QScrollArea(self.widget_2)
         self.recipemainScrollArea.setObjectName(u"recipemainScrollArea")
-        self.recipemainScrollArea.setGeometry(QRect(20, 20, 451, 151))
+        self.recipemainScrollArea.setGeometry(QRect(20, 20, 451, 150))
         self.recipemainScrollArea.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:20px;")
         self.recipemainScrollArea.setWidgetResizable(True)
@@ -108,8 +104,6 @@ class Ui_Form(object):
         self.clickprofileButton.setGeometry(QRect(80, 11, 91, 31))
         self.clickprofileButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
-"padding-top: 5px;\n"
-"color:black;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"

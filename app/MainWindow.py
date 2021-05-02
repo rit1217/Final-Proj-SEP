@@ -75,5 +75,12 @@ class MainWindow( QMainWindow ):
         self.mainmenu = Mainmenu()
         self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
         self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
-        self.setFixedSize( 557, 457)
+        self.setFixedSize( 557, 480)
         self.setCentralWidget( self.mainmenu )
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    w = Mainmenu()
+    w.setStyleSheet( "background-color:rgb(255, 187, 178)")
+    w.show()
+    sys.exit(app.exec_())
