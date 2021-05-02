@@ -18,20 +18,13 @@ class MainWindow( QMainWindow ):
         self.setFixedSize( 455, 305)
         self.setStyleSheet("background-color: rgb(255, 136, 38)")
         self.login = Login()
-        self.register = Register()
-        self.mainmenu = Mainmenu()
-        self.profile = Profile()
-        self.createRecipe = CreateRecipe()
-        self.current_user = None
-        self.setup_buttons()
-        self.setCentralWidget( self.login )
-
-    def setup_buttons( self ):
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
-        self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
-        self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
-        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )
+        self.register = Register()
+        self.createRecipe = CreateRecipe()
+        self.current_user = None
+        self.setCentralWidget( self.login )
+
 
     def login_signupButton( self ):
         self.register.clearUI()
@@ -50,6 +43,9 @@ class MainWindow( QMainWindow ):
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
                 self.current_user = user_info
                 self.setFixedSize(557,457)
+                self.mainmenu = Mainmenu()
+                self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
+                self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
                 self.setStyleSheet("background-color:rgb(255, 187, 178);")
                 self.setCentralWidget( self.mainmenu )
             else:
@@ -58,17 +54,26 @@ class MainWindow( QMainWindow ):
                 message.exec_()
 
     def main_profileButton( self ):
-        self.profile.setFixedSize( 557, 457)
+        self.profile = Profile()
+        self.profile.ui.backButton.clicked.connect( self.prof_backButton )
         # self.profile.show()
-        self.setFixedSize(557,457)
+        self.setFixedSize(557,465)
         self.profile.updateProfile( self.current_user )
         # self.setStyleSheet("background-color:rgb(255, 187, 178);")
         self.setCentralWidget( self.profile )
 
     def main_createButton( self ):
+        self.createRecipe = CreateRecipe()
+        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )
         self.createRecipe.show()
     
     def create_cancelButton( self ):
         self.createRecipe.close()
-        self.createRecipe = CreateRecipe()
-        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )
+        
+
+    def prof_backButton( self ):
+        self.mainmenu = Mainmenu()
+        self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
+        self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
+        self.setFixedSize( 557, 457)
+        self.setCentralWidget( self.mainmenu )

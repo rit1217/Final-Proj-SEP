@@ -36,7 +36,7 @@ class Ui_Form(object):
         self.usernameLabel.setStyleSheet(u"color:black")
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(270, 50, 271, 188))
+        self.frame.setGeometry(QRect(270, 30, 271, 188))
         self.frame.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -122,14 +122,14 @@ class Ui_Form(object):
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(80, 260, 411, 191))
+        self.widget_2.setGeometry(QRect(20, 260, 411, 195))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
-"border-radius:20px")
+"border-radius:15px")
         self.recipeScrollArea = QScrollArea(self.widget_2)
         self.recipeScrollArea.setObjectName(u"recipeScrollArea")
-        self.recipeScrollArea.setGeometry(QRect(30, 20, 361, 171))
+        self.recipeScrollArea.setGeometry(QRect(30, 20, 361, 175))
         self.recipeScrollArea.setStyleSheet(u"background-color:rgb(255, 187, 178);\n"
-"border-radius:20px;")
+"border-radius:3px;")
         self.recipeScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
@@ -138,10 +138,26 @@ class Ui_Form(object):
         self.piclabel = QLabel(Form)
         self.piclabel.setObjectName(u"piclabel")
         self.piclabel.setGeometry(QRect(60, 20, 151, 151))
+        self.backButton = QPushButton(Form)
+        self.backButton.setObjectName(u"backButton")
+        self.backButton.setGeometry(QRect(450, 410, 91, 32))
+        self.backButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
+
         self.widget_2.raise_()
         self.frame.raise_()
         self.widget.raise_()
         self.piclabel.raise_()
+        self.backButton.raise_()
+
 
         self.retranslateUi(Form)
 
@@ -163,6 +179,8 @@ class Ui_Form(object):
         self.genderLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.heightLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.weightLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.backButton.setText(QCoreApplication.translate("Form", u"Back", None))
+
         self.piclabel.setText("")
     # retranslateUi
 

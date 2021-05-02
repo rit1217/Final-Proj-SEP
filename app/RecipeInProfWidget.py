@@ -12,6 +12,7 @@ class RecipeInProfile(QWidget):
         self.ui.setupUi(self)
         self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipeLabel.setScaledContents(True)
+        self.setFixedSize( 445, 150)
         
     def clickevent(self):
         self.ui.label.setText("Have click!!!!!")
@@ -21,7 +22,7 @@ class RecipeInProfile(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = RecipeInProfile()
-    w.setFixedSize(440,162)
+    w.setFixedSize(45,162)
     w.show()
     sys.exit(app.exec_())
     

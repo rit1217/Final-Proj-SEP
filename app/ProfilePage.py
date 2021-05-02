@@ -11,7 +11,7 @@ class Profile(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
-        
+        self.setFixedSize( 557,465)
         self.ui.setupUi(self)
         self.ui.piclabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.piclabel.setScaledContents(True)
@@ -22,13 +22,11 @@ class Profile(QWidget):
         self.vlayout = QVBoxLayout()
         self.glayout =[]
         self.groupBox =QGroupBox() 
-        self.recipeWidget = RecipeInProfile()
-        self.recipeWidget.setStyleSheet(u"background-color:rgb(255, 187, 178)")
         self.recipes = []
         self.viewButton =[]
         self.editButton=[]
         for i in range(20):
-
+            self.recipes.append( RecipeInProfile())
             self.recipeLabel =QLabel()
             self.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
             self.recipeLabel.setScaledContents(True)
@@ -73,17 +71,17 @@ class Profile(QWidget):
 "}")        
 
 
-            self.blayout.addWidget(self.recipeLabel)
-            self.glayout.append(QGridLayout())
-            self.blayout.addWidget(self.levelLabel)
-            self.glayout[i].addWidget(self.viewButton[i],0,0)
-            self.glayout[i].addWidget(self.editButton[i],1,0)
-            self.blayout.addLayout(self.glayout[i])
+            self.blayout.addWidget(self.recipes[i])
+          #  self.glayout.append(QGridLayout())
+            #self.blayout.addWidget(self.levelLabel)
+          #  self.glayout[i].addWidget(self.viewButton[i],0,0)
+          #  self.glayout[i].addWidget(self.editButton[i],1,0)
+         #   self.blayout.addLayout(self.glayout[i])
             
         self.groupBox.setLayout(self.blayout)
         self.ui.recipeScrollArea.setWidget(self.groupBox)
-        self.ui.recipeScrollArea.setStyleSheet("border-radius: 5px")
-        self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)")
+        #self.ui.recipeScrollArea.setStyleSheet("border-radius: 5px")
+        self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)\n")
         self.ui.recipeScrollArea.setWidgetResizable(True)
 
     def updateProfile( self, cur_user ):
@@ -128,6 +126,7 @@ class Profile(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = Profile()
-    w.setFixedSize(557,457)
+    w.setFixedSize(557,465)
+    w.setStyleSheet( "background-color:rgb(255, 187, 178)")
     w.show()
     sys.exit(app.exec_())
