@@ -53,25 +53,25 @@ class Ui_Form(object):
         self.searchEdit.setEchoMode(QLineEdit.Normal)
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(30, 110, 491, 175))
+        self.widget_2.setGeometry(QRect(30, 110, 490, 190))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px")
         self.recipemainScrollArea = QScrollArea(self.widget_2)
         self.recipemainScrollArea.setObjectName(u"recipemainScrollArea")
-        self.recipemainScrollArea.setGeometry(QRect(20, 20, 451, 150))
+        self.recipemainScrollArea.setGeometry(QRect(20, 10, 450, 170))
         self.recipemainScrollArea.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:20px;")
         self.recipemainScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 451, 151))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 451, 150))
         self.recipemainScrollArea.setWidget(self.scrollAreaWidgetContents)
         self.recipepicLabel = QLabel(Form)
         self.recipepicLabel.setObjectName(u"recipepicLabel")
-        self.recipepicLabel.setGeometry(QRect(50, 300, 141, 131))
+        self.recipepicLabel.setGeometry(QRect(50, 310, 141, 131))
         self.clickcreateButton = QPushButton(Form)
         self.clickcreateButton.setObjectName(u"clickcreateButton")
-        self.clickcreateButton.setGeometry(QRect(260, 370, 113, 32))
+        self.clickcreateButton.setGeometry(QRect(260, 390, 113, 32))
         self.clickcreateButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
@@ -86,7 +86,7 @@ class Ui_Form(object):
 "}")
         self.createLabel = QLabel(Form)
         self.createLabel.setObjectName(u"createLabel")
-        self.createLabel.setGeometry(QRect(230, 310, 181, 41))
+        self.createLabel.setGeometry(QRect(230, 330, 181, 41))
         self.createLabel.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;\n"
 "color:black;")
