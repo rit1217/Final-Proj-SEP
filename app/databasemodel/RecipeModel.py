@@ -21,7 +21,16 @@ class RecipeModel:
         rec = Recipe( recipe_info )
         print ( rec )
 
+    def getRecipeFromCreator( self, creator ):
+        statement = "SELECT * FROM Recipe WHERE CREATOR = '%s'" %(creator)
+        CURSOR.execute( statement)
+        recipe_info = CURSOR.fetchone()
+        print (recipe_info)
+        CONNECTION.commit()
+        rec = Recipe( recipe_info )
+        print ( rec )
+
 if __name__ == "__main__":
     rm = RecipeModel()
-    rec = rm.getRecipeFromID( 1 )
+    rec = rm.getRecipeFromCreator( 'rrrit1' )
     print ( rec )

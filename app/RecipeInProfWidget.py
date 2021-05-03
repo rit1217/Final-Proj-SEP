@@ -12,10 +12,11 @@ class RecipeInProfile(QWidget):
         self.ui.setupUi(self)
         self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipeLabel.setScaledContents(True)
+        self.ui.previewButton.clicked.connect( self.viewButton)
         self.setFixedSize( 445, 150)
         
-    def clickevent(self):
-        self.ui.label.setText("Have click!!!!!")
+    def viewButton(self):
+        print( "TTEIOSJOI" )
         
 
 
