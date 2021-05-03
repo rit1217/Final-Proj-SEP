@@ -24,11 +24,22 @@ class RecipeModel:
     def getRecipeFromCreator( self, creator ):
         statement = "SELECT * FROM Recipe WHERE CREATOR = '%s'" %(creator)
         CURSOR.execute( statement)
-        recipe_info = CURSOR.fetchone()
-        print (recipe_info)
+        recipes = CURSOR.fetchall()
         CONNECTION.commit()
-        rec = Recipe( recipe_info )
-        print ( rec )
+        res = []
+        for i in recipes:
+            res.append(Recipe( i ))
+        return res
+
+    def getAllRecipe( self ):
+        statement = "SELECT * FROM Recipe"
+        CURSOR.execute( statement)
+        recipes = CURSOR.fetchall()
+        CONNECTION.commit()
+        res = []
+        for i in recipes:
+            res.append(Recipe( i ))
+        return res
 
 if __name__ == "__main__":
     rm = RecipeModel()
