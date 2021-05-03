@@ -10,11 +10,12 @@ class CreateRecipe(QWidget):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.ui.cancel_pushButton.clicked.connect( self.cancel )
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
-    def clickevent(self):
-        self.ui.label.setText("Have click!!!!!")
+    def cancel(self):
+        self.close()
         
 
 

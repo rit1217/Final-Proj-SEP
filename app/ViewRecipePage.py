@@ -13,8 +13,8 @@ class ViewRecipe(QWidget):
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
-    def clickevent(self):
-        self.ui.label.setText("Have click!!!!!")
+    def setRecipe(self, recipe):
+        pass
         
 
 

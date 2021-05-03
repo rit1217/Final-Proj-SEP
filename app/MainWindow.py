@@ -64,12 +64,7 @@ class MainWindow( QMainWindow ):
 
     def main_createButton( self ):
         self.createRecipe = CreateRecipe()
-        self.createRecipe.ui.cancel_pushButton.clicked.connect( self.create_cancelButton )
         self.createRecipe.show()
-    
-    def create_cancelButton( self ):
-        self.createRecipe.close()
-        
 
     def prof_backButton( self ):
         self.mainmenu = Mainmenu()

@@ -4,6 +4,8 @@ from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBo
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.recipeInProfile import Ui_Form
+from ViewRecipePage import ViewRecipe
+from CreateRecipePage import CreateRecipe
 
 class RecipeInProfile(QWidget):
     def __init__(self):
@@ -12,11 +14,18 @@ class RecipeInProfile(QWidget):
         self.ui.setupUi(self)
         self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipeLabel.setScaledContents(True)
-        self.ui.previewButton.clicked.connect( self.viewButton)
+        self.ui.previewButton.clicked.connect( self.viewButtonClick )
+        self.ui.editButton.clicked.connect( self.editButtonClick )
         self.setFixedSize( 445, 150)
+        self.view = ViewRecipe()
+        self.createRecipe = CreateRecipe()
+
+    def viewButtonClick(self):
         
-    def viewButton(self):
-        print( "TTEIOSJOI" )
+        self.view.show()
+    
+    def editButtonClick( self ):
+        self.createRecipe.show()
         
 
 
