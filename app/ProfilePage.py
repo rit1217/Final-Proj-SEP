@@ -16,7 +16,6 @@ class Profile(QWidget):
         self.ui.setupUi(self)
         self.ui.piclabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.piclabel.setScaledContents(True)
-
         self.widget =QWidget()
         formlayout =QFormLayout()
         self.blayout = QHBoxLayout()
@@ -24,9 +23,11 @@ class Profile(QWidget):
         self.groupBox =QGroupBox() 
         
 
+    def refresh( self ):
+        self.updateProfile( self.user )
+
     def updateProfile( self, cur_user ):
         self.user = cur_user
-
         self.ui.usernameLabel.setText(cur_user.getUsername())
         self.ui.nameLabel_2.setText(cur_user.getFirstName())
         self.ui.lastnameLabel_2.setText(cur_user.getLastName())
@@ -36,10 +37,11 @@ class Profile(QWidget):
         self.ui.weightLabel_2.setText(str(cur_user.getWeight()))
         self.recipes = []
         recipes_info = RECIPE_MODEL.getRecipeFromCreator( self.user.getUsername() )
+        for i in reversed(range( self.blayout.count())):
+            self.blayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
             self.recipes.append( RecipeInProfile( recipes_info[i]))
-
             self.blayout.addWidget(self.recipes[i])
             
         self.groupBox.setLayout(self.blayout)

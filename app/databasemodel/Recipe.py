@@ -15,7 +15,10 @@ class Recipe:
         self.ingredients = []
         
     def __str__( self ):
-        return "%08d %s\n%d KCAL\n%s\nCreated By : %s" %(self.id, self.name, self.calories, self.cooking_step, self.creator)
+        return "%08d %s\n%d KCAL\n%s\nCreated By : %s\n%s" %(self.id, self.name, self.calories, self.cooking_step, self.creator, self.difficulty)
+    
+    def getRecipeInfo( self ):
+        return self.info
 
     def getId( self ):
         return self.id

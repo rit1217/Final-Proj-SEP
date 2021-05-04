@@ -19,7 +19,8 @@ class RecipeInProfile(QWidget):
         self.setFixedSize( 445, 150)
         self.recipe = recipe
         self.view = ViewRecipe( self.recipe )
-        self.createRecipe = CreateRecipe()
+        self.createRecipe = CreateRecipe( self.recipe.getCreator().getUsername())
+        self.createRecipe.setRecipe( recipe )
         self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
         self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
 

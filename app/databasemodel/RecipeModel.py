@@ -7,9 +7,18 @@ class RecipeModel:
         pass
         
     def insertRecipe( self, newRecipe ):
-        info = newRecipe.getUserInfo()
-        CURSOR.execute( "INSERT INTO Recipe(RECIPE_ID, NAME, CALORIES, COOKING_STEP, CREATOR, IMAGE) VALUES(?,?,?,?,?,?)",
+        info = newRecipe.getRecipeInfo()
+        CURSOR.execute( "INSERT INTO Recipe(RECIPE_ID, NAME, CALORIES, COOKING_STEP, CREATOR, DIFFICULTY) VALUES(?,?,?,?,?,?)",
         (info))
+        CONNECTION.commit()
+
+    def updateRecipe( self, recipe ):
+        info = list(recipe.getRecipeInfo()[1:])
+        info.append( recipe.getId() )
+        info = tuple(info)
+        print( info )
+        CURSOR.execute( "UPDATE Recipe SET NAME = '%s', CALORIES = %f, COOKING_STEP = '%s', CREATOR = '%s', DIFFICULTY = '%s' WHERE RECIPE_ID = %d"
+        %(info))
         CONNECTION.commit()
 
     def getRecipeFromID( self, recipe_id ):
@@ -17,6 +26,7 @@ class RecipeModel:
         CURSOR.execute( statement)
         recipes = CURSOR.fetchall()
         CONNECTION.commit()
+        res = []
         for i in recipes:
             res.append(Recipe( i ))
         return res
@@ -41,9 +51,16 @@ class RecipeModel:
             res.append(Recipe( i ))
         return res
 
+    def getMaxId( self ):
+        statement = "SELECT MAX(RECIPE_ID) FROM Recipe"
+        CURSOR.execute( statement)
+        res = CURSOR.fetchone()
+        CONNECTION.commit()
+        return res
+
 RECIPE_MODEL = RecipeModel()
 
 if __name__ == "__main__":
     rm = RecipeModel()
-    rec = rm.getRecipeFromCreator( 'rrrit1' )
+    rec = rm.getRecipeFromID( 9 )
     print ( rec )

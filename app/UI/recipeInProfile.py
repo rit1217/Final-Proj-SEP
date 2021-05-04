@@ -30,7 +30,7 @@ class Ui_Form(object):
 
         self.levelLabel = QLabel(Form)
         self.levelLabel.setObjectName(u"levelLabel")
-        self.levelLabel.setGeometry(QRect(200, 60, 120, 20))
+        self.levelLabel.setGeometry(QRect(200, 60, 180, 20))
         self.levelLabel.setStyleSheet(u"color: black;")
 
         self.widget = QWidget(Form)

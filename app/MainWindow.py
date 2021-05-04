@@ -21,7 +21,7 @@ class MainWindow( QMainWindow ):
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
         self.register = Register()
-        self.createRecipe = CreateRecipe()
+        self.createRecipe = None
         self.current_user = None
         self.setCentralWidget( self.login )
 
@@ -59,11 +59,13 @@ class MainWindow( QMainWindow ):
         # self.profile.show()
         self.setFixedSize(557,465)
         self.profile.updateProfile( self.current_user )
+        self.profile.ui.refreshButton.clicked.connect( self.profile.refresh )
+
         # self.setStyleSheet("background-color:rgb(255, 187, 178);")
         self.setCentralWidget( self.profile )
 
     def main_createButton( self ):
-        self.createRecipe = CreateRecipe()
+        self.createRecipe = CreateRecipe(self.current_user.getUsername())
         self.createRecipe.show()
 
     def prof_backButton( self ):
