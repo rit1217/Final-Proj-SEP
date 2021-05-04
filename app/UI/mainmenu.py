@@ -84,6 +84,22 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "	background-color:rgb(255, 43, 14)\n"
 "}")
+
+        self.refreshButton = QPushButton(Form)
+        self.refreshButton.setObjectName(u"refreshButton")
+        self.refreshButton.setGeometry(QRect(400, 390, 113, 32))
+        self.refreshButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"padding-top: 5px;\n"
+"color:black;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.createLabel = QLabel(Form)
         self.createLabel.setObjectName(u"createLabel")
         self.createLabel.setGeometry(QRect(230, 330, 181, 41))
@@ -128,5 +144,7 @@ class Ui_Form(object):
         self.createLabel.setText(QCoreApplication.translate("Form", u"     Create your own recipe", None))
         self.profileLabel.setText(QCoreApplication.translate("Form", u"Profile:", None))
         self.clickprofileButton.setText(QCoreApplication.translate("Form", u"Click", None))
+        self.refreshButton.setText(QCoreApplication.translate("Form", u"Refresh", None))
+
     # retranslateUi
 

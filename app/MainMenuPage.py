@@ -15,6 +15,7 @@ class Mainmenu(QWidget):
         self.ui.searchButton.setIcon(QPixmap("app/UI/search.png"))
         self.ui.recipepicLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipepicLabel.setScaledContents(True)
+        self.ui.refreshButton.clicked.connect( self.refresh )
         
         formlayout =QFormLayout()
         self.blayout = QHBoxLayout()
@@ -25,52 +26,12 @@ class Mainmenu(QWidget):
         self.editButton=[]
         self.recipes = []
         recipes_info = RECIPE_MODEL.getAllRecipe()
+        for i in reversed(range( self.blayout.count())):
+            self.blayout.itemAt(i).widget().setParent(None)
+
+
         for i in range(len(recipes_info)):
             self.recipes.append( RecipeInMenu( recipes_info[i] ) )
-
-#             self.foodLabel =QLabel()
-#             self.foodLabel.setPixmap(QPixmap("app/UI/fast-food.png"))
-#             self.foodLabel.setScaledContents(True)
-#             self.foodLabel.setFixedSize(120,110)
-
-
-#             self.levelLabel =QLabel("Level:  Easy") 
-#             self.levelLabel.setFixedSize(100,50)
-#             self.levelLabel.setStyleSheet("color:black")
-
-
-#             self.viewButton.append(QPushButton("View"))
-#             self.viewButton[i].setFixedSize(80,20)
-#             self.viewButton[i].setStyleSheet("QPushButton{background-color:rgb(255, 127, 86);\n"
-# "border:none;\n"
-# "padding-top: 6px;\n"
-# "color:black;\n"
-# "border-radius: 5px;\n"
-# "}\n"
-# "QPushButton:hover{\n"
-# "	background-color:rgb(255, 99, 0)\n"
-# "}\n"
-# "QPushButton:pressed{\n"
-# "	background-color:rgb(255, 43, 14)\n"
-# "}")
-
-
-#             self.editButton.append(QPushButton("Edit"))
-#             self.editButton[i].setFixedSize(80,20)
-#             self.editButton[i].setStyleSheet("QPushButton{background-color:rgb(255, 127, 86);\n"
-# "border:none;\n"
-# "padding-top: 6px;\n"
-# "color:black;\n"
-# "border-radius: 5px;\n"
-# "}\n"
-# "QPushButton:hover{\n"
-# "	background-color:rgb(255, 99, 0)\n"
-# "}\n"
-# "QPushButton:pressed{\n"
-# "	background-color:rgb(255, 43, 14)\n"
-# "}")        
-
-
             self.blayout.addWidget(self.recipes[i])
             # self.glayout.append(QGridLayout())
             # self.glayout[i].addWidget(self.levelLabel,0,0)
@@ -82,6 +43,15 @@ class Mainmenu(QWidget):
         self.ui.recipemainScrollArea.setStyleSheet("border-radius: 5px")
         self.ui.recipemainScrollArea.setWidgetResizable(True)
    
+    def refresh( self ):
+        self.recipes = []
+        recipes_info = RECIPE_MODEL.getAllRecipe()
+        for i in reversed(range( self.blayout.count())):
+            self.blayout.itemAt(i).widget().setParent(None)
+
+        for i in range(len(recipes_info)):
+            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
+            self.blayout.addWidget(self.recipes[i])
         
 
 
