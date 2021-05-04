@@ -11,6 +11,7 @@ class CreateRecipe(QWidget):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         self.ui.cancel_pushButton.clicked.connect( self.cancel )
+        self.setFixedSize( 550, 660)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
@@ -22,7 +23,6 @@ class CreateRecipe(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = CreateRecipe()
-    w.setFixedSize(544,471)
     w.show()
     sys.exit(app.exec_())
     
