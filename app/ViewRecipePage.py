@@ -6,10 +6,13 @@ from PySide6.QtGui import QPixmap
 from UI.viewRecipe import Ui_Form
 
 class ViewRecipe(QWidget):
-    def __init__(self):
+    def __init__(self, recipe):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.recipe = recipe
+        self.ui.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : %s</span></p></body></html>" %self.recipe.getCreator().getUsername()))
+        self.ui.inCal_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">%s</span></p></body></html>"%str(self.recipe.getCalories())))
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
@@ -20,7 +23,7 @@ class ViewRecipe(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    w = ViewRecipe()
+    w = ViewRecipe("")
     w.setFixedSize(647,545)
     w.show()
     sys.exit(app.exec_())

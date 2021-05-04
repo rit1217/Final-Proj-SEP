@@ -5,6 +5,8 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.mainmenu import Ui_Form
 from RecipeInMenuWidget import RecipeInMenu
+from databasemodel.RecipeModel import *
+
 class Mainmenu(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
@@ -22,8 +24,9 @@ class Mainmenu(QWidget):
         self.viewButton =[]
         self.editButton=[]
         self.recipes = []
-        for i in range(20):
-            self.recipes.append( RecipeInMenu() )
+        recipes_info = RECIPE_MODEL.getAllRecipe()
+        for i in range(len(recipes_info)):
+            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
 
 #             self.foodLabel =QLabel()
 #             self.foodLabel.setPixmap(QPixmap("app/UI/fast-food.png"))

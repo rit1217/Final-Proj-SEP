@@ -7,7 +7,7 @@ from UI.recipeInMenu import Ui_Form
 from ViewRecipePage import ViewRecipe
 
 class RecipeInMenu(QWidget):
-    def __init__(self):
+    def __init__(self, recipe):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
@@ -15,7 +15,9 @@ class RecipeInMenu(QWidget):
         self.ui.recipeLabel.setScaledContents(True)
         self.setFixedSize( 364, 130)
         self.ui.previewButton.clicked.connect( self.viewButtonClick )
-        self.view = ViewRecipe()
+        self.recipe = recipe
+        self.view = ViewRecipe( self.recipe)
+
 
     def viewButtonClick(self):
         self.view.show()

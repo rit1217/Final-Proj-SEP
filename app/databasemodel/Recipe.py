@@ -1,4 +1,4 @@
-from UserModel import *
+from databasemodel.UserModel import *
 
 class Recipe:
     def __init__( self, recipe_info ):
@@ -15,6 +15,22 @@ class Recipe:
         
     def __str__( self ):
         return "%08d %s\n%d KCAL\n%s\nCreated By : %s" %(self.id, self.name, self.calories, self.cooking_step, self.creator)
+
+    def getId( self ):
+        return self.id
+
+    def getName( self ):
+        return self.name
+
+    def getCalories( self ):
+        return self.calories
+
+    def getCookingStep( self):
+        return self.cooking_step
+
+    def getCreator( self ):
+        return self.creator
+
 
     def getIngredients( self ):
         #@TODO

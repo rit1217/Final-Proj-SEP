@@ -1,5 +1,5 @@
 import sqlite3
-from Recipe import Recipe
+from databasemodel.Recipe import Recipe
 from databasemodel.modelConstant import *
 
 class RecipeModel:
@@ -40,6 +40,8 @@ class RecipeModel:
         for i in recipes:
             res.append(Recipe( i ))
         return res
+
+RECIPE_MODEL = RecipeModel()
 
 if __name__ == "__main__":
     rm = RecipeModel()
