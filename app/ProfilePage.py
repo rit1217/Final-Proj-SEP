@@ -6,6 +6,7 @@ from PySide6.QtGui import QPixmap
 from UI.profile import Ui_Form
 from RecipeInProfWidget import RecipeInProfile
 from Constant import *
+from databasemodel.RecipeModel import *
 
 class Profile(QWidget):
     def __init__(self):
@@ -21,18 +22,11 @@ class Profile(QWidget):
         self.blayout = QHBoxLayout()
         self.vlayout = QVBoxLayout()
         self.groupBox =QGroupBox() 
-        self.recipes = []
-        for i in range(20):
-            self.recipes.append( RecipeInProfile())
-
-            self.blayout.addWidget(self.recipes[i])
-            
-        self.groupBox.setLayout(self.blayout)
-        self.ui.recipeScrollArea.setWidget(self.groupBox)
-        self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)\n")
-        self.ui.recipeScrollArea.setWidgetResizable(True)
+        
 
     def updateProfile( self, cur_user ):
+        self.user = cur_user
+
         self.ui.usernameLabel.setText(cur_user.getUsername())
         self.ui.nameLabel_2.setText(cur_user.getFirstName())
         self.ui.lastnameLabel_2.setText(cur_user.getLastName())
@@ -40,6 +34,18 @@ class Profile(QWidget):
         self.ui.genderLabel_2.setText(cur_user.getGender())
         self.ui.heightLabel_2.setText(str(cur_user.getHeight()))
         self.ui.weightLabel_2.setText(str(cur_user.getWeight()))
+        self.recipes = []
+        recipes_info = RECIPE_MODEL.getRecipeFromCreator( self.user.getUsername() )
+
+        for i in range(len(recipes_info)):
+            self.recipes.append( RecipeInProfile( recipes_info[i]))
+
+            self.blayout.addWidget(self.recipes[i])
+            
+        self.groupBox.setLayout(self.blayout)
+        self.ui.recipeScrollArea.setWidget(self.groupBox)
+        self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)\n")
+        self.ui.recipeScrollArea.setWidgetResizable(True)
         
 
 if __name__ == "__main__":

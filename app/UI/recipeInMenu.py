@@ -24,11 +24,17 @@ class Ui_Form(object):
         self.recipeLabel.setGeometry(QRect(10, 10, 111, 111))
         self.levelLabel = QLabel(Form)
         self.levelLabel.setObjectName(u"levelLabel")
-        self.levelLabel.setGeometry(QRect(170, 60, 141, 16))
+        self.levelLabel.setGeometry(QRect(170, 55, 190, 16))
         self.levelLabel.setStyleSheet(u"color:black;")
+        
+        self.creatorLabel = QLabel(Form)
+        self.creatorLabel.setObjectName(u"creatorLabel")
+        self.creatorLabel.setGeometry(QRect(170, 75, 190, 16))
+        self.creatorLabel.setStyleSheet(u"color:black;")
+
         self.previewButton = QPushButton(Form)
         self.previewButton.setObjectName(u"previewButton")
-        self.previewButton.setGeometry(QRect(170, 90, 91, 31))
+        self.previewButton.setGeometry(QRect(170, 100, 91, 31))
         self.previewButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
@@ -43,7 +49,7 @@ class Ui_Form(object):
 "}")
         self.recipenameLabel = QLabel(Form)
         self.recipenameLabel.setObjectName(u"recipenameLabel")
-        self.recipenameLabel.setGeometry(QRect(170, 10, 191, 41))
+        self.recipenameLabel.setGeometry(QRect(170, 5, 191, 41))
         self.recipenameLabel.setStyleSheet(u"color:black;")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
@@ -59,6 +65,7 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.recipeLabel.setText("")
         self.levelLabel.setText(QCoreApplication.translate("Form", u"Level:", None))
+        self.creatorLabel.setText(QCoreApplication.translate("Form", u"Created by:", None))
         self.previewButton.setText(QCoreApplication.translate("Form", u"View ", None))
         self.recipenameLabel.setText(QCoreApplication.translate("Form", u"Recipe:Name", None))
     # retranslateUi

@@ -15,11 +15,11 @@ class RecipeModel:
     def getRecipeFromID( self, recipe_id ):
         statement = "SELECT * FROM Recipe WHERE RECIPE_ID = '%d'" %(recipe_id)
         CURSOR.execute( statement)
-        recipe_info = CURSOR.fetchone()
-        print (recipe_info)
+        recipes = CURSOR.fetchall()
         CONNECTION.commit()
-        rec = Recipe( recipe_info )
-        print ( rec )
+        for i in recipes:
+            res.append(Recipe( i ))
+        return res
 
     def getRecipeFromCreator( self, creator ):
         statement = "SELECT * FROM Recipe WHERE CREATOR = '%s'" %(creator)

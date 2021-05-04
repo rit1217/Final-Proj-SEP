@@ -23,6 +23,7 @@ class CreateRecipe(QWidget):
 
     def search( self ):
         keyword = self.ui.ingSearch_lineEdit.text()
+        self.ui.searchResult_listWidget.clear()
         self.ui.searchResult_listWidget.addItems( INGREDIENT_MODEL.searchIngredient( keyword ))
 
 

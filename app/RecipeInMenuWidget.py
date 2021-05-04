@@ -17,7 +17,9 @@ class RecipeInMenu(QWidget):
         self.ui.previewButton.clicked.connect( self.viewButtonClick )
         self.recipe = recipe
         self.view = ViewRecipe( self.recipe)
-
+        self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
+        self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
+        self.ui.creatorLabel.setText("Created by: %s" %(self.recipe.getCreator().getUsername()))
 
     def viewButtonClick(self):
         self.view.show()

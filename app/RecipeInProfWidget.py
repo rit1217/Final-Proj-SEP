@@ -8,7 +8,7 @@ from ViewRecipePage import ViewRecipe
 from CreateRecipePage import CreateRecipe
 
 class RecipeInProfile(QWidget):
-    def __init__(self):
+    def __init__(self, recipe ):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
@@ -17,8 +17,12 @@ class RecipeInProfile(QWidget):
         self.ui.previewButton.clicked.connect( self.viewButtonClick )
         self.ui.editButton.clicked.connect( self.editButtonClick )
         self.setFixedSize( 445, 150)
-        self.view = ViewRecipe()
+        self.recipe = recipe
+        self.view = ViewRecipe( self.recipe )
         self.createRecipe = CreateRecipe()
+        self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
+        self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
+
 
     def viewButtonClick(self):
         

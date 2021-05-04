@@ -11,6 +11,7 @@ class Recipe:
         print (user_info)
         self.creator = user_info
         self.info = recipe_info
+        self.difficulty = recipe_info[5]
         self.ingredients = []
         
     def __str__( self ):
@@ -31,6 +32,8 @@ class Recipe:
     def getCreator( self ):
         return self.creator
 
+    def getDifficulty( self ):
+        return self.difficulty
 
     def getIngredients( self ):
         #@TODO
