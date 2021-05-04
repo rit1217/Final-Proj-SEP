@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBo
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.viewRecipe import Ui_Form
+from databasemodel.IngredientModel import *
 
 class ViewRecipe(QWidget):
     def __init__(self, recipe):
@@ -17,6 +18,11 @@ class ViewRecipe(QWidget):
         self.ui.name_label.setText(self.recipe.getName())
         self.ui.recipe_label.setText( self.recipe.getCookingStep() )
         self.ui.recipe_label.setStyleSheet( u"color: black;")
+        self.ui.ingredients_label.setStyleSheet( u"color: black;")
+
+        self.ingredients = INGREDIENT_MODEL.getIngredient( self.recipe.getId() )
+        for i in self.ingredients:
+            self.ui.ingredients_label.setText( self.ui.ingredients_label.text() + "%s  %.2f  %s  : %.2f KCAL\n" %(i.getName(), i.getQty(), i.getUnit(), i.getCalories()))
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         

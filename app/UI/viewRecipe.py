@@ -167,7 +167,7 @@ class Ui_Form(object):
         self.inLevel_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">easy</span></p></body></html>", None))
         self.level_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">Level :</span></p></body></html>", None))
         self.cal_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">Calories :</span></p></body></html>", None))
-        self.ingredients_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">TextLabel</span></p></body></html>", None))
+        self.ingredients_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\"></span></p></body></html>", None))
         self.instruction_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">Instruction :</span></p></body></html>", None))
         self.recipe_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">TextLabel</span></p></body></html>", None))
         self.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : </span></p></body></html>", None))
