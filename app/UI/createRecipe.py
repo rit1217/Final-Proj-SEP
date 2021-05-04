@@ -32,7 +32,8 @@ class Ui_Form(object):
         self.ingSearch_lineEdit = QLineEdit(Form)
         self.ingSearch_lineEdit.setObjectName(u"ingSearch_lineEdit")
         self.ingSearch_lineEdit.setGeometry(QRect(120, 140, 151, 21))
-        self.ingSearch_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.ingSearch_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
         self.search_pushButton = QPushButton(Form)
         self.search_pushButton.setObjectName(u"search_pushButton")
         self.search_pushButton.setGeometry(QRect(270, 140, 21, 21))
@@ -54,7 +55,8 @@ class Ui_Form(object):
         self.name_lineEdit = QLineEdit(Form)
         self.name_lineEdit.setObjectName(u"name_lineEdit")
         self.name_lineEdit.setGeometry(QRect(320, 60, 113, 21))
-        self.name_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.name_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
         self.level_comboBox = QComboBox(Form)
         self.level_comboBox.setObjectName(u"level_comboBox")
         self.level_comboBox.setGeometry(QRect(320, 90, 111, 21))
@@ -65,7 +67,8 @@ class Ui_Form(object):
         self.amount_lineEdit = QLineEdit(Form)
         self.amount_lineEdit.setObjectName(u"amount_lineEdit")
         self.amount_lineEdit.setGeometry(QRect(370, 140, 41, 21))
-        self.amount_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.amount_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
         self.add_pushButton = QPushButton(Form)
         self.add_pushButton.setObjectName(u"add_pushButton")
         self.add_pushButton.setGeometry(QRect(430, 140, 51, 21))
@@ -85,7 +88,8 @@ class Ui_Form(object):
         self.instruction_textEdit = QTextEdit(Form)
         self.instruction_textEdit.setObjectName(u"instruction_textEdit")
         self.instruction_textEdit.setGeometry(QRect(120, 440, 361, 141))
-        self.instruction_textEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.instruction_textEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
         self.save_pushButton = QPushButton(Form)
         self.save_pushButton.setObjectName(u"save_pushButton")
         self.save_pushButton.setGeometry(QRect(180, 600, 81, 31))
@@ -117,15 +121,17 @@ class Ui_Form(object):
         self.image_label.setGeometry(QRect(80, 60, 81, 16))
         self.searchResult_listWidget = QListWidget(Form)
         self.searchResult_listWidget.setObjectName(u"searchResult_listWidget")
-        self.searchResult_listWidget.setGeometry(QRect(120, 180, 291, 81))
-        self.searchResult_listWidget.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.searchResult_listWidget.setGeometry(QRect(120, 170, 361, 115))
+        self.searchResult_listWidget.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
         self.ingredient_label = QLabel(Form)
         self.ingredient_label.setObjectName(u"ingredient_label")
-        self.ingredient_label.setGeometry(QRect(40, 280, 81, 16))
+        self.ingredient_label.setGeometry(QRect(40, 300, 81, 16))
         self.ingredient_textBrowser = QTextBrowser(Form)
         self.ingredient_textBrowser.setObjectName(u"ingredient_textBrowser")
-        self.ingredient_textBrowser.setGeometry(QRect(120, 280, 361, 131))
-        self.ingredient_textBrowser.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.ingredient_textBrowser.setGeometry(QRect(120, 295, 361, 130))
+        self.ingredient_textBrowser.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        "color: black;")
 
         self.retranslateUi(Form)
 

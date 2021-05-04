@@ -1,7 +1,7 @@
 import requests
 import json
-from Ingredient import Ingredient
-from modelConstant import *
+from databasemodel.Ingredient import Ingredient
+from databasemodel.modelConstant import *
 
 class IngredientModel:
     def __init__( self ):
@@ -15,11 +15,14 @@ class IngredientModel:
         # print( json.dumps(response.json()["foods"], indent = 4)) 
         result = []
         for i in response.json()["foods"]:
-            temp = i["description"] + " (" + i["brandOwner"] + ") : "
+            try:
+                temp = i["description"] + " (" + i["brandOwner"] + ") : "
+            except KeyError as k:
+                temp = i["description"] + " : "
             for j in i["foodNutrients"]:
                 if j["nutrientName"] == "Energy":
                     if (j["unitName"] == "kJ"):
-                        temp = temp + j["value"] * 0.239, "KCAL"
+                        temp = temp + "%.2f KCAL" %( j["value"] * 0.239)
                     else:
                         temp = temp + "%d %s" %(j["value"], j["unitName"])
                     break
