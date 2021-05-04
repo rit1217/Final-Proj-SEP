@@ -14,7 +14,7 @@ class CreateRecipe(QWidget):
         self.ui.setupUi(self)
         self.ui.cancel_pushButton.clicked.connect( self.cancel )
         self.ui.search_pushButton.clicked.connect( self.search )
-        self.setFixedSize( 550, 660)
+        self.setFixedSize( 660, 660)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
