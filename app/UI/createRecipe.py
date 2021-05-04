@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(660, 659)
+        Form.resize(660, 660)
         Form.setStyleSheet(u"background-color: rgb(254, 173, 129);\n"
 " border-radius:10px;")
         self.name_label = QLabel(Form)
@@ -25,7 +25,7 @@ class Ui_Form(object):
         self.name_label.setGeometry(QRect(300, 60, 58, 16))
         self.level_label = QLabel(Form)
         self.level_label.setObjectName(u"level_label")
-        self.level_label.setGeometry(QRect(285, 90, 60, 16))
+        self.level_label.setGeometry(QRect(285, 100, 60, 16))
         self.ingSearch_label = QLabel(Form)
         self.ingSearch_label.setObjectName(u"ingSearch_label")
         self.ingSearch_label.setGeometry(QRect(40, 140, 81, 16))
@@ -59,8 +59,11 @@ class Ui_Form(object):
         "color: black;")
         self.level_comboBox = QComboBox(Form)
         self.level_comboBox.setObjectName(u"level_comboBox")
-        self.level_comboBox.setGeometry(QRect(360, 90, 111, 21))
-        self.level_comboBox.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.level_comboBox.setGeometry(QRect(360, 100, 180, 21))
+        self.level_comboBox.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+         "color: black;")
+        self.level_comboBox.addItems( ["1: Beginner","2: Easy", "3: Intermediate", "4: Complicated", "5: Very-Complicated"])
+
         self.amount_label = QLabel(Form)
         self.amount_label.setObjectName(u"amount_label")
         self.amount_label.setGeometry(QRect(300, 140, 58, 16))
@@ -69,19 +72,17 @@ class Ui_Form(object):
         self.amount_lineEdit.setGeometry(QRect(360, 140, 41, 21))
         self.amount_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
         "color: black;")
-        self.unit_label = QLabel(Form)
-        self.unit_label.setObjectName(u"unit_label")
-        self.unit_label.setGeometry(QRect(410, 140, 50, 16))
 
         self.unit_comboBox = QComboBox(Form)
         self.unit_comboBox.setObjectName(u"unit_comboBox")
-        self.unit_comboBox.setGeometry(QRect(445, 140, 51, 21))
+        self.unit_comboBox.setGeometry(QRect(410, 140, 110, 21))
         self.unit_comboBox.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
         "color: black;")
+        self.unit_comboBox.addItems( ["g","mL", "cup(220g)", "tsp(4.5g)", "tbsp(14g)", "oz(28g)"])
 
         self.add_pushButton = QPushButton(Form)
         self.add_pushButton.setObjectName(u"add_pushButton")
-        self.add_pushButton.setGeometry(QRect(510, 140, 51, 21))
+        self.add_pushButton.setGeometry(QRect(525, 140, 51, 21))
         self.add_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
@@ -116,7 +117,7 @@ class Ui_Form(object):
         "color: black;")
         self.save_pushButton = QPushButton(Form)
         self.save_pushButton.setObjectName(u"save_pushButton")
-        self.save_pushButton.setGeometry(QRect(180, 600, 81, 31))
+        self.save_pushButton.setGeometry(QRect(240, 600, 81, 31))
         self.save_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
@@ -129,7 +130,7 @@ class Ui_Form(object):
 "}")
         self.cancel_pushButton = QPushButton(Form)
         self.cancel_pushButton.setObjectName(u"cancel_pushButton")
-        self.cancel_pushButton.setGeometry(QRect(290, 600, 81, 31))
+        self.cancel_pushButton.setGeometry(QRect(340, 600, 81, 31))
         self.cancel_pushButton.setStyleSheet(u"QPushButton{background-color:rgb(250, 125, 0);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
@@ -176,7 +177,6 @@ class Ui_Form(object):
         self.cancel_pushButton.setText(QCoreApplication.translate("Form", u"Cancel", None))
         self.image_label.setText(QCoreApplication.translate("Form", u"Insert image", None))
         self.ingredient_label.setText(QCoreApplication.translate("Form", u"Ingredients:", None))
-        self.unit_label.setText(QCoreApplication.translate("Form", u"Unit :", None))
         self.remove_pushButton.setText(QCoreApplication.translate("Form", u"Remove", None))
     # retranslateUi
 

@@ -14,10 +14,11 @@ class CreateRecipe(QWidget):
         self.ui.setupUi(self)
         self.ui.cancel_pushButton.clicked.connect( self.cancel )
         self.ui.search_pushButton.clicked.connect( self.search )
+        self.ui.add_pushButton.clicked.connect( self.addIngredient )
+        self.ui.remove_pushButton.clicked.connect( self.removeIngredient)
         self.setFixedSize( 660, 660)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
-        
     def cancel(self):
         self.close()
 
@@ -26,6 +27,11 @@ class CreateRecipe(QWidget):
         self.ui.searchResult_listWidget.clear()
         self.ui.searchResult_listWidget.addItems( INGREDIENT_MODEL.searchIngredient( keyword ))
 
+    def addIngredient( self ):
+        self.ui.ingredient_listWidget.addItem( self.ui.searchResult_listWidget.currentItem().text()  )
+
+    def removeIngredient( self ):
+        self.ui.ingredient_listWidget.takeItem( self.ui.ingredient_listWidget.currentRow())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
