@@ -16,7 +16,7 @@ class Mainmenu(QWidget):
         self.ui.recipepicLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipepicLabel.setScaledContents(True)
         self.ui.refreshButton.clicked.connect( self.refresh )
-        
+        self.ui.searchButton.clicked.connect( self.search )
         formlayout =QFormLayout()
         self.blayout = QHBoxLayout()
         self.vlayout = QVBoxLayout()
@@ -46,6 +46,17 @@ class Mainmenu(QWidget):
     def refresh( self ):
         self.recipes = []
         recipes_info = RECIPE_MODEL.getAllRecipe()
+        for i in reversed(range( self.blayout.count())):
+            self.blayout.itemAt(i).widget().setParent(None)
+
+        for i in range(len(recipes_info)):
+            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
+            self.blayout.addWidget(self.recipes[i])
+    
+    def search( self ):
+        print( "\n%s\n" %(self.ui.searchEdit.text()))
+        self.recipes = []
+        recipes_info = RECIPE_MODEL.searchRecipeByName( self.ui.searchEdit.text() )
         for i in reversed(range( self.blayout.count())):
             self.blayout.itemAt(i).widget().setParent(None)
 

@@ -5,6 +5,12 @@ from databasemodel.modelConstant import *
 class RecipeModel:
     def __init__(self):
         pass
+
+    def convertToBinaryData( self, filename):
+        # Convert digital data to binary format
+        with open(filename, 'rb') as file:
+            blobData = file.read()
+        return blobData
         
     def insertRecipe( self, newRecipe ):
         info = newRecipe.getRecipeInfo()
@@ -57,6 +63,24 @@ class RecipeModel:
         res = CURSOR.fetchone()
         CONNECTION.commit()
         return res
+    
+    def searchRecipeByName( self, keyword ):
+        statement = "SELECT * FROM Recipe WHERE NAME LIKE '%" + keyword + "%'"
+        CURSOR.execute(  statement)
+        res = []
+        recipes = CURSOR.fetchall()
+        CONNECTION.commit()
+        for i in recipes:
+            res.append( Recipe(i))
+        return res
+
+    def insertImageById( self, image, recipe_id ):
+        statement = "UPDATE Recipe SET IMAGE = ? WHERE RECIPE_ID = %d"%(recipe_id)
+        blobImage = self.convertToBinaryData( image )
+        CURSOR.execute( statement, (blobImage,))
+        CONNECTION.commit()
+
+
 
 RECIPE_MODEL = RecipeModel()
 

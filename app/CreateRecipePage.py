@@ -18,16 +18,21 @@ class CreateRecipe(QWidget):
         self.ui.search_pushButton.clicked.connect( self.search )
         self.ui.add_pushButton.clicked.connect( self.addIngredient )
         self.ui.remove_pushButton.clicked.connect( self.removeIngredient)
+        self.ui.pic_pushButton.clicked.connect( self.browse )
         self.setFixedSize( 660, 660)
         self.unitMultiplier = [1, 1, 220, 4.5, 14, 28]
         self.ingredients = []
         self.current_user = current_user
         self.recipe = None
+        self.picture = None
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
     def cancel(self):
         self.close()
 
+    def browse( self ):
+        self.picture = QFileDialog.getOpenFileName(None, "Open a file", ":","Images (*.png *.xpm *.jpg)")[0]
+        
     def search( self ):
         keyword = self.ui.ingSearch_lineEdit.text()
         self.ui.searchResult_listWidget.clear()
@@ -79,6 +84,8 @@ class CreateRecipe(QWidget):
                     recipe_info = (recipe_id, self.ui.name_lineEdit.text(), total_cal, self.ui.instruction_textEdit.toPlainText(), 
                     self.current_user, self.ui.level_comboBox.currentText())
                     RECIPE_MODEL.insertRecipe( Recipe(recipe_info) )
+                    if self.picture is not None:
+                        RECIPE_MODEL.insertImageById( self.picture, recipe_id )
                     message.setText("Recipe saved!")
                     self.close()
                 else:
@@ -116,6 +123,8 @@ class CreateRecipe(QWidget):
                     self.current_user, self.ui.level_comboBox.currentText())
                     print( "recipe info : ", recipe_info)
                     RECIPE_MODEL.updateRecipe( Recipe(recipe_info) )
+                    if self.picture is not None:
+                        RECIPE_MODEL.insertImageById( self.picture, self.recipe.getId() )
                     message.setText("Recipe saved!")
                     self.close()
                 else:
