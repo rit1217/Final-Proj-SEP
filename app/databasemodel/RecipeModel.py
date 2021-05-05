@@ -80,6 +80,12 @@ class RecipeModel:
         CURSOR.execute( statement, (blobImage,))
         CONNECTION.commit()
 
+    def getImageById( self, recipe_id ):
+        statement = "SELECT IMAGE FROM Recipe WHERE RECIPE_ID = %d"%(recipe_id)
+        CURSOR.execute( statement )
+        blobImage = CURSOR.fetchone()
+        CONNECTION.commit
+        return blobImage
 
 
 RECIPE_MODEL = RecipeModel()

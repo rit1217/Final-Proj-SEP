@@ -5,6 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.viewRecipe import Ui_Form
 from databasemodel.IngredientModel import *
+from databasemodel.RecipeModel import *
 
 class ViewRecipe(QWidget):
     def __init__(self, recipe):
@@ -19,6 +20,12 @@ class ViewRecipe(QWidget):
         self.ui.recipe_label.setText( self.recipe.getCookingStep() )
         self.ui.recipe_label.setStyleSheet( u"color: black;")
         self.ui.ingredients_label.setStyleSheet( u"color: black;")
+        self.picture = RECIPE_MODEL.getImageById( self.recipe.getId() )
+        if self.picture is not None:
+            pix = QPixmap()
+            pix.loadFromData( self.picture[0] )
+            self.ui.picture_label.setScaledContents( True )
+            self.ui.picture_label.setPixmap( pix )
 
         self.ingredients = INGREDIENT_MODEL.getIngredient( self.recipe.getId() )
         for i in self.ingredients:

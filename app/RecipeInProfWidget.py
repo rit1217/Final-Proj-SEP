@@ -6,7 +6,7 @@ from PySide6.QtGui import QPixmap
 from UI.recipeInProfile import Ui_Form
 from ViewRecipePage import ViewRecipe
 from CreateRecipePage import CreateRecipe
-
+from databasemodel.RecipeModel import *
 class RecipeInProfile(QWidget):
     def __init__(self, recipe ):
         QWidget.__init__(self,None)
@@ -23,7 +23,12 @@ class RecipeInProfile(QWidget):
         self.createRecipe.setRecipe( recipe )
         self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
         self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
-
+        self.picture = RECIPE_MODEL.getImageById( self.recipe.getId() )
+        if self.picture is not None:
+            pix = QPixmap()
+            pix.loadFromData( self.picture[0] )
+            self.ui.recipeLabel.setScaledContents( True )
+            self.ui.recipeLabel.setPixmap( pix )
 
     def viewButtonClick(self):
         
