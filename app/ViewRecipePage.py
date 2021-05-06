@@ -19,7 +19,7 @@ class ViewRecipe(QWidget):
         self.ui.name_label.setText(self.recipe.getName())
         self.ui.recipe_label.setText( self.recipe.getCookingStep() )
         self.ui.recipe_label.setStyleSheet( u"color: black;")
-        self.ui.ingredients_label.setStyleSheet( u"color: black;")
+        # self.ui.ingredients_label.setStyleSheet( u"color: black;")
         self.picture = RECIPE_MODEL.getImageById( self.recipe.getId() )
         if self.picture is not None:
             pix = QPixmap()
@@ -28,9 +28,10 @@ class ViewRecipe(QWidget):
             self.ui.picture_label.setPixmap( pix )
 
         self.ingredients = INGREDIENT_MODEL.getIngredient( self.recipe.getId() )
+        print( self.ingredients )
         for i in self.ingredients:
-            self.ui.ingredients_label.setText( self.ui.ingredients_label.text() + "%s  %.2f  %s  : %.2f KCAL\n" %(i.getName(), i.getQty(), i.getUnit(), i.getCalories()))
-        print( self.ui.ingredients_label.text() )
+            ing =  "%s  %.2f  %s  : %.2f KCAL" %(i.getName(), i.getQty(), i.getUnit(), i.getCalories())
+            self.ui.ingredients_listWidget.addItem( ing)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
