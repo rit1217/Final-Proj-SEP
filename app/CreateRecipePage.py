@@ -31,7 +31,7 @@ class CreateRecipe(QWidget):
         self.close()
 
     def browse( self ):
-        self.picture = QFileDialog.getOpenFileName(None, "Open a file", ":","Images (*.png *.xpm *.jpg)")[0]
+        self.picture = QFileDialog.getOpenFileName(None, "Open a file", ":","Images (*.png *.xpm *.jpg *.jpeg)")[0]
         
     def search( self ):
         keyword = self.ui.ingSearch_lineEdit.text()
@@ -75,7 +75,10 @@ class CreateRecipe(QWidget):
         if len(self.ui.name_lineEdit.text()) > 0:
             if len(self.ingredients) > 0:
                 if len(self.ui.instruction_textEdit.toPlainText()) > 0:
-                    recipe_id = RECIPE_MODEL.getMaxId()[0] + 1
+                    if RECIPE_MODEL.getMaxId()[0]:
+                        recipe_id = RECIPE_MODEL.getMaxId()[0] + 1
+                    else:
+                        recipe_id = 1
                     total_cal = 0
                     for i in range( len(self.ingredients)):
                         self.ingredients[i].setRecipe( recipe_id )

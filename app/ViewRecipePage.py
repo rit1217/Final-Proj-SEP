@@ -30,6 +30,7 @@ class ViewRecipe(QWidget):
         self.ingredients = INGREDIENT_MODEL.getIngredient( self.recipe.getId() )
         for i in self.ingredients:
             self.ui.ingredients_label.setText( self.ui.ingredients_label.text() + "%s  %.2f  %s  : %.2f KCAL\n" %(i.getName(), i.getQty(), i.getUnit(), i.getCalories()))
+        print( self.ui.ingredients_label.text() )
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
         
