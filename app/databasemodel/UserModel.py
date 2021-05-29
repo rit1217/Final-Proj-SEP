@@ -11,6 +11,11 @@ class UserModel:
         info = newUser.getUserInfo()
         CURSOR.execute( "INSERT INTO User(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, HEIGHT, WEIGHT, BIRTHDATE, GENDER) VALUES(?,?,?,?,?,?,?,?)",info)
         CONNECTION.commit()
+    
+    def updateUser( self, username, newInfo ):
+        info = newInfo + (username,)
+        CURSOR.execute( "UPDATE User SET FIRST_NAME = '%s', LAST_NAME = '%s', HEIGHT = %d, WEIGHT = %d, BIRTH = '%s', GENDER = '%s' WHERE USERNAME = '%s'" %(info))
+        CONNECTION.commit()
 
     def getUser( self, username ):
         statement = "SELECT * FROM User WHERE USERNAME = '%s'" %(username)

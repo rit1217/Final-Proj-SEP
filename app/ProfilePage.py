@@ -5,6 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.profile import Ui_Form
 from RecipeInProfWidget import RecipeInProfile
+from RegisterPage import Register
 from Constant import *
 from databasemodel.RecipeModel import *
 
@@ -20,8 +21,8 @@ class Profile(QWidget):
         formlayout =QFormLayout()
         self.blayout = QHBoxLayout()
         self.vlayout = QVBoxLayout()
-        self.groupBox =QGroupBox() 
-        
+        self.groupBox =QGroupBox()
+        self.ui.editButton.clicked.connect( self.editProfile )
 
     def refresh( self ):
         self.updateProfile( self.user )
@@ -48,6 +49,9 @@ class Profile(QWidget):
         self.ui.recipeScrollArea.setWidget(self.groupBox)
         self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)\n")
         self.ui.recipeScrollArea.setWidgetResizable(True)
+
+    def editProfile( self ):
+        pass
         
 
 if __name__ == "__main__":

@@ -138,6 +138,21 @@ class Ui_Form(object):
         self.piclabel = QLabel(Form)
         self.piclabel.setObjectName(u"piclabel")
         self.piclabel.setGeometry(QRect(60, 20, 151, 151))
+
+        self.editButton = QPushButton(Form)
+        self.editButton.setObjectName(u"editButton")
+        self.editButton.setGeometry(QRect(450, 330, 91, 32))
+        self.editButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
+
         self.refreshButton = QPushButton(Form)
         self.refreshButton.setObjectName(u"refreshButton")
         self.refreshButton.setGeometry(QRect(450, 370, 91, 32))
@@ -172,6 +187,8 @@ class Ui_Form(object):
         self.piclabel.raise_()
         self.backButton.raise_()
         self.refreshButton.raise_()
+        self.editButton.raise_()
+
 
         self.retranslateUi(Form)
 
@@ -195,6 +212,7 @@ class Ui_Form(object):
         self.weightLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.backButton.setText(QCoreApplication.translate("Form", u"Back", None))
         self.refreshButton.setText(QCoreApplication.translate("Form", u"Refresh", None))
+        self.editButton.setText(QCoreApplication.translate("Form", u"Edit", None))
 
 
         self.piclabel.setText("")
