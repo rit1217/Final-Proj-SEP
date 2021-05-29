@@ -69,7 +69,7 @@ class MainWindow( QMainWindow ):
         self.createRecipe.show()
 
     def prof_backButton( self ):
-        self.mainmenu = Mainmenu()
+        self.mainmenu = Mainmenu(self.current_user)
         self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
         self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
         self.setFixedSize( 557, 480)

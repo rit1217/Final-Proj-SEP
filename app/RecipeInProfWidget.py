@@ -7,6 +7,8 @@ from UI.recipeInProfile import Ui_Form
 from ViewRecipePage import ViewRecipe
 from CreateRecipePage import CreateRecipe
 from databasemodel.RecipeModel import *
+from databasemodel.RatingModel import *
+
 class RecipeInProfile(QWidget):
     def __init__(self, recipe, currentUser ):
         QWidget.__init__(self,None)
@@ -22,7 +24,20 @@ class RecipeInProfile(QWidget):
         self.view = ViewRecipe( self.recipe, self.current_user )
         self.createRecipe = CreateRecipe( self.recipe.getCreator().getUsername())
         self.createRecipe.setRecipe( recipe )
-        self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
+        if len(self.recipe.getName()) > 13:
+            temp_name = self.recipe.getName()
+            replace_space = False
+            for i in range( 12, 5, -1):
+                if self.recipe.getName()[i] == ' ':
+                    temp_name = temp_name[:i] + '\n              ' + temp_name[i+1:]
+                    replace_space = True
+                    break
+            if not replace_space:
+                temp_name = self.recipe.getName()[:13] + "\n              " + self.recipe.getName()[13:]
+            self.ui.recipenameLabel.setText("Recipe: %s"%(temp_name))
+        else:
+            self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
+        self.ui.ratingLabel.setText("Rating: %.1f" %(RATING_MODEL.getAverageRating( self.recipe.getId())))
         self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
         self.picture = RECIPE_MODEL.getImageById( self.recipe.getId() )
         if self.picture is not None:

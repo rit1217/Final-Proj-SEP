@@ -73,28 +73,33 @@ class CreateRecipe(QWidget):
     def save( self ):
         message = QMessageBox( None )
         if len(self.ui.name_lineEdit.text()) > 0:
-            if len(self.ingredients) > 0:
-                if len(self.ui.instruction_textEdit.toPlainText()) > 0:
-                    if RECIPE_MODEL.getMaxId()[0]:
-                        recipe_id = RECIPE_MODEL.getMaxId()[0] + 1
+            if len(self.ui.name_lineEdit.text()) <= 20:
+                if len(self.ingredients) > 0:
+                    if len(self.ui.instruction_textEdit.toPlainText()) > 0:
+                        if RECIPE_MODEL.getMaxId()[0]:
+                            recipe_id = RECIPE_MODEL.getMaxId()[0] + 1
+                        else:
+                            recipe_id = 1
+                        total_cal = 0
+                        for i in range( len(self.ingredients)):
+                            self.ingredients[i].setRecipe( recipe_id )
+                            INGREDIENT_MODEL.insertIngredientInRec( self.ingredients[i])
+                            total_cal += self.ingredients[i].getCalories()
+                        recipe_info = (recipe_id, self.ui.name_lineEdit.text(), total_cal, self.ui.instruction_textEdit.toPlainText(), 
+                        self.current_user, self.ui.level_comboBox.currentText())
+                        RECIPE_MODEL.insertRecipe( Recipe(recipe_info) )
+                        if self.picture is not None:
+                            RECIPE_MODEL.insertImageById( self.picture, recipe_id )
+                        else:
+                            RECIPE_MODEL.insertImageById( "app/UI/recipe-book.png", recipe_id )
+                        message.setText("Recipe saved!")
+                        self.close()
                     else:
-                        recipe_id = 1
-                    total_cal = 0
-                    for i in range( len(self.ingredients)):
-                        self.ingredients[i].setRecipe( recipe_id )
-                        INGREDIENT_MODEL.insertIngredientInRec( self.ingredients[i])
-                        total_cal += self.ingredients[i].getCalories()
-                    recipe_info = (recipe_id, self.ui.name_lineEdit.text(), total_cal, self.ui.instruction_textEdit.toPlainText(), 
-                    self.current_user, self.ui.level_comboBox.currentText())
-                    RECIPE_MODEL.insertRecipe( Recipe(recipe_info) )
-                    if self.picture is not None:
-                        RECIPE_MODEL.insertImageById( self.picture, recipe_id )
-                    message.setText("Recipe saved!")
-                    self.close()
+                        message.setText( "Please insert cooking instruction.")
                 else:
-                    message.setText( "Please insert cooking instruction.")
+                    message.setText( "Please insert ingredient.")
             else:
-                message.setText( "Please insert ingredient.")
+                messagee.setText( "Recipe name must not longer than 20 characters.")
         else:
             message.setText("Please insert recipe name.")
 

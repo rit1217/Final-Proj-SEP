@@ -8,6 +8,8 @@ from ViewCommentPage import ViewComment
 from databasemodel.IngredientModel import *
 from databasemodel.RecipeModel import *
 from databasemodel.CommentModel import *
+from databasemodel.RatingModel import *
+
 class ViewRecipe(QWidget):
     def __init__(self, recipe, currentUser):
         QWidget.__init__(self,None)
@@ -37,9 +39,27 @@ class ViewRecipe(QWidget):
             self.ui.ingredients_listWidget.addItem( ing)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
-        self.ui.sendButton.clicked.connect( self.sendComment)
-        self.ui.viewcomment.clicked.connect( self.viewComment )
-        
+        if self.current_user.getUsername() == self.recipe.getCreator().getUsername():
+            self.ui.rateButton.close()
+            self.ui.rate_spinBox.close()
+            self.ui.rating_label.close()
+            self.ui.comment_lineEdit.close()
+            self.ui.comment_label.close()
+            self.ui.sendButton.close()
+            self.ui.viewcomment.setGeometry( QRect(10,400, 240, 31))
+            self.ui.viewcomment.clicked.connect( self.viewComment )
+
+        else:
+            self.ui.sendButton.clicked.connect( self.sendComment)
+            self.ui.viewcomment.clicked.connect( self.viewComment )
+            current_rating = RATING_MODEL.getRating( self.current_user.getUsername(), self.recipe.getId() )
+            print ("\n\n" , current_rating, "\n\n")
+            if current_rating is not None:
+                self.ui.rateButton.clicked.connect( self.updateRate )
+                self.ui.rate_spinBox.setValue( current_rating )
+            else:
+                self.ui.rateButton.clicked.connect( self.rate )
+            
     def sendComment(self):
         comment = self.ui.comment_lineEdit.text()
         COMMENT_MODEL.insertComment( self.current_user.getUsername(), self.recipe.getId(), comment )
@@ -50,8 +70,25 @@ class ViewRecipe(QWidget):
     
     def viewComment( self ):
         self.viewCommentPage.show()
+    
+    def rate( self ):
+        RATING_MODEL.insertRating( self.current_user.getUsername(), self.recipe.getId(), self.ui.rate_spinBox.value())
+        self.ui.rateButton.clicked.disconnect()
+        self.ui.rateButton.clicked.connect( self.updateRate )
+        message = QMessageBox( None )
+        message.setText( "Recipe Rated!")
+        message.exec_()
 
-
+    def updateRate( self ):
+        confirm = QMessageBox( None)
+        answer = confirm.question( None, "Rating Confirmation", "Do you want to rate this recipe again?", confirm.No | confirm.Yes )
+        if answer == confirm.Yes:
+            RATING_MODEL.updateRating( self.current_user.getUsername(), self.recipe.getId(), self.ui.rate_spinBox.value())
+            message = QMessageBox( None )
+            message.setText( "Recipe Rated!")
+            message.exec_()
+        else:
+            confirm.close()
         
 
 

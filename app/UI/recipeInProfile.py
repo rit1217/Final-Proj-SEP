@@ -28,10 +28,15 @@ class Ui_Form(object):
         self.recipenameLabel.setGeometry(QRect(200, 5, 180, 50))
         self.recipenameLabel.setStyleSheet(u"color: black;")
 
+        self.ratingLabel = QLabel(Form)
+        self.ratingLabel.setObjectName(u"ratingLabel")
+        self.ratingLabel.setGeometry(QRect(200, 60, 180, 20))
+        self.ratingLabel.setStyleSheet(u"color: blue;")
+
         self.levelLabel = QLabel(Form)
         self.levelLabel.setObjectName(u"levelLabel")
-        self.levelLabel.setGeometry(QRect(200, 60, 180, 20))
-        self.levelLabel.setStyleSheet(u"color: black;")
+        self.levelLabel.setGeometry(QRect(200, 80, 180, 20))
+        self.levelLabel.setStyleSheet(u"color: rgb(80, 80, 80);")
 
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
@@ -79,6 +84,7 @@ class Ui_Form(object):
         self.recipeLabel.setText("")
         self.recipenameLabel.setText(QCoreApplication.translate("Form", u"Recipe: Name", None))
         self.levelLabel.setText(QCoreApplication.translate("Form", u"Level:", None))
+        self.ratingLabel.setText(QCoreApplication.translate("Form", u"Rating:", None))
         self.previewButton.setText(QCoreApplication.translate("Form", u"View recipe", None))
         self.editButton.setText(QCoreApplication.translate("Form", u"Edit", None))
     # retranslateUi

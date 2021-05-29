@@ -102,7 +102,7 @@ class Ui_Form(object):
 "}")
         self.createLabel = QLabel(Form)
         self.createLabel.setObjectName(u"createLabel")
-        self.createLabel.setGeometry(QRect(230, 330, 181, 41))
+        self.createLabel.setGeometry(QRect(300, 330, 181, 41))
         self.createLabel.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;\n"
 "color:black;")

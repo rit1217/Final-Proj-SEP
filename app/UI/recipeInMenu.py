@@ -22,15 +22,16 @@ class Ui_Form(object):
         self.recipeLabel = QLabel(Form)
         self.recipeLabel.setObjectName(u"recipeLabel")
         self.recipeLabel.setGeometry(QRect(10, 10, 111, 111))
+        
         self.levelLabel = QLabel(Form)
         self.levelLabel.setObjectName(u"levelLabel")
-        self.levelLabel.setGeometry(QRect(170, 55, 190, 16))
-        self.levelLabel.setStyleSheet(u"color:black;")
+        self.levelLabel.setGeometry(QRect(170, 58, 190, 16))
+        self.levelLabel.setStyleSheet(u"color:rgb(80, 80, 80);")
         
         self.creatorLabel = QLabel(Form)
         self.creatorLabel.setObjectName(u"creatorLabel")
         self.creatorLabel.setGeometry(QRect(170, 75, 190, 16))
-        self.creatorLabel.setStyleSheet(u"color:black;")
+        self.creatorLabel.setStyleSheet(u"color:rgb(80, 80, 80);")
 
         self.previewButton = QPushButton(Form)
         self.previewButton.setObjectName(u"previewButton")
@@ -49,8 +50,15 @@ class Ui_Form(object):
 "}")
         self.recipenameLabel = QLabel(Form)
         self.recipenameLabel.setObjectName(u"recipenameLabel")
-        self.recipenameLabel.setGeometry(QRect(170, 5, 191, 41))
+        self.recipenameLabel.setGeometry(QRect(170, 0, 180, 41))
+
+        self.ratingLabel = QLabel(Form)
+        self.ratingLabel.setObjectName(u"recipeLabel")
+        self.ratingLabel.setGeometry(QRect(170, 40, 111, 16))
+
         self.recipenameLabel.setStyleSheet(u"color:black;")
+        self.recipeLabel.setWordWrap( True )
+        self.ratingLabel.setStyleSheet( u"color:blue;")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(357, 7, 3, 120))
@@ -64,6 +72,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.recipeLabel.setText("")
+        self.ratingLabel.setText(QCoreApplication.translate("Form", u"Rating: ", None))
         self.levelLabel.setText(QCoreApplication.translate("Form", u"Level:", None))
         self.creatorLabel.setText(QCoreApplication.translate("Form", u"Created by:", None))
         self.previewButton.setText(QCoreApplication.translate("Form", u"View ", None))

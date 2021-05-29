@@ -14,7 +14,7 @@ class Profile(QWidget):
         self.ui = Ui_Form()
         self.setFixedSize( 557,465)
         self.ui.setupUi(self)
-        self.ui.piclabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
+        self.ui.piclabel.setPixmap(QPixmap("app/UI/pngegg.png"))
         self.ui.piclabel.setScaledContents(True)
         self.widget =QWidget()
         formlayout =QFormLayout()

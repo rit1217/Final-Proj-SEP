@@ -13,15 +13,23 @@ class RatingModel:
         CONNECTION.commit()
     
     def getAverageRating( self, recipe_id ):
-        CURSOR.execute( "SELECT AVG(RATING) FROM Rating WHERE RECIPE_ID = %d", %(recipe_id))
+        CURSOR.execute( "SELECT AVG(RATING) FROM Rating WHERE RECIPE_ID = %d" %(recipe_id))
         avg = CURSOR.fetchone()
         CONNECTION.commit()
+        print( "\n\n", avg, "\n\n")
+        if avg[0] is None:
+            avg = 0.0
+        else:
+            avg = avg[0]
         return avg
     
     def getRating( self, username, recipe_id ):
         CURSOR.execute( "SELECT RATING FROM Rating WHERE RECIPE_ID = %d AND USERNAME = '%s'" %(recipe_id, username))
         rating = CURSOR.fetchone()
         CONNECTION.commit()
-        return rating
+        if rating is not None:
+            return rating[0]
+        else:
+            return rating
         
 RATING_MODEL = RatingModel()

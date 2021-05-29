@@ -46,7 +46,7 @@ class Ui_Form(object):
         self.inCal_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.name_label = QLabel(self.widget)
         self.name_label.setObjectName(u"name_label")
-        self.name_label.setGeometry(QRect(20, 20, 340, 41))
+        self.name_label.setGeometry(QRect(30, 20, 360, 41))
         font1 = QFont()
         font1.setPointSize(24)
         self.name_label.setFont(font1)
@@ -224,8 +224,8 @@ class Ui_Form(object):
         self.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : </span></p></body></html>", None))
         self.rating_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Rate this recipe :</span></p></body></html>", None))
         self.comment_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Comment :</span></p></body></html>", None))
-        self.viewcomment.setText(QCoreApplication.translate("Form", u"view comment", None))
-        self.sendButton.setText(QCoreApplication.translate("Form", u"send", None))
-        self.rateButton.setText(QCoreApplication.translate("Form", u"rate", None))
+        self.viewcomment.setText(QCoreApplication.translate("Form", u"View Comment", None))
+        self.sendButton.setText(QCoreApplication.translate("Form", u"Send", None))
+        self.rateButton.setText(QCoreApplication.translate("Form", u"Rate", None))
         
     # retranslateUi
