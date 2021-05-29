@@ -26,7 +26,7 @@ class Ui_Form(object):
 "")
         self.picture_label = QLabel(Form)
         self.picture_label.setObjectName(u"picture_label")
-        self.picture_label.setGeometry(QRect(30, 70, 201, 241))
+        self.picture_label.setGeometry(QRect(30, 40, 201, 241))
         self.picture_label.setAutoFillBackground(False)
         self.picture_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 "border-radius: 15px;")
@@ -125,22 +125,22 @@ class Ui_Form(object):
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.creator_label = QLabel(Form)
         self.creator_label.setObjectName(u"creator_label")
-        self.creator_label.setGeometry(QRect(20, 340, 220, 25))
+        self.creator_label.setGeometry(QRect(20, 300, 220, 25))
         self.creator_label.setAlignment( Qt.AlignCenter )
         self.creator_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 "border-radius: 15px;")
-#         self.rate_spinBox = QSpinBox(Form)
-#         self.rate_spinBox.setObjectName(u"rate_spinBox")
-#         self.rate_spinBox.setGeometry(QRect(160, 380, 51, 21))
-#         self.rate_spinBox.setFont(font)
-#         self.rate_spinBox.setStyleSheet(u"background-color: rgb(255, 223, 202);")
-#         self.rate_spinBox.setMinimum(1)
-#         self.rate_spinBox.setMaximum(5)
-#         self.rating_label = QLabel(Form)
-#         self.rating_label.setObjectName(u"rating_label")
-#         self.rating_label.setGeometry(QRect(40, 380, 111, 21))
-#         self.rating_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
-# "border-radius: 15px;")
+        self.rate_spinBox = QSpinBox(Form)
+        self.rate_spinBox.setObjectName(u"rate_spinBox")
+        self.rate_spinBox.setGeometry(QRect(140, 340, 51, 21))
+        self.rate_spinBox.setFont(font)
+        self.rate_spinBox.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.rate_spinBox.setMinimum(1)
+        self.rate_spinBox.setMaximum(5)
+        self.rating_label = QLabel(Form)
+        self.rating_label.setObjectName(u"rating_label")
+        self.rating_label.setGeometry(QRect(20, 340, 111, 21))
+        self.rating_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+ "border-radius: 15px;")
         self.comment_label = QLabel(Form)
         self.comment_label.setObjectName(u"comment_label")
         self.comment_label.setGeometry(QRect(20, 380, 81, 21))
@@ -179,15 +179,31 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "	background-color:rgb(255, 43, 14)\n"
 "}")
+        self.rateButton = QPushButton(Form)
+        self.rateButton.setObjectName(u"rateButton")
+        self.rateButton.setGeometry(QRect(200, 335, 41, 31))
+        self.rateButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"padding-top: 5px;\n"
+"color:black;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.widget.raise_()
         self.picture_label.raise_()
         self.creator_label.raise_()
-        # self.rate_spinBox.raise_()
-        # self.rating_label.raise_()
+        self.rate_spinBox.raise_()
+        self.rating_label.raise_()
         self.comment_label.raise_()
         self.comment_lineEdit.raise_()
         self.viewcomment.raise_()
         self.sendButton.raise_()
+        self.rateButton.raise_()
         self.retranslateUi(Form)
 
         QMetaObject.connectSlotsByName(Form)
@@ -206,8 +222,10 @@ class Ui_Form(object):
         self.instruction_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">Instruction :</span></p></body></html>", None))
         self.recipe_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">TextLabel</span></p></body></html>", None))
         self.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : </span></p></body></html>", None))
-        # self.rating_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Rate this recipe :</span></p></body></html>", None))
+        self.rating_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Rate this recipe :</span></p></body></html>", None))
         self.comment_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Comment :</span></p></body></html>", None))
         self.viewcomment.setText(QCoreApplication.translate("Form", u"view comment", None))
         self.sendButton.setText(QCoreApplication.translate("Form", u"send", None))
+        self.rateButton.setText(QCoreApplication.translate("Form", u"rate", None))
+        
     # retranslateUi
