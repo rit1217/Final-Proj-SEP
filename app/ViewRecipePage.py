@@ -4,15 +4,18 @@ from PySide6.QtWidgets import QPushButton,QLabel,QBoxLayout,QFormLayout,QGroupBo
 from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.viewRecipe import Ui_Form
+from ViewCommentPage import ViewComment
 from databasemodel.IngredientModel import *
 from databasemodel.RecipeModel import *
-
+from databasemodel.CommentModel import *
 class ViewRecipe(QWidget):
-    def __init__(self, recipe):
+    def __init__(self, recipe, currentUser):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         self.recipe = recipe
+        self.current_user = currentUser
+        self.viewCommentPage = ViewComment( self.recipe )
         self.ui.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : %s</span></p></body></html>" %self.recipe.getCreator().getUsername()))
         self.ui.inCal_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#000000;\">%s KCAL</span></p></body></html>"%str(self.recipe.getCalories())))
         self.ui.inLevel_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#000000;\">%s</span></p></body></html>"%self.recipe.getDifficulty()))
@@ -34,9 +37,21 @@ class ViewRecipe(QWidget):
             self.ui.ingredients_listWidget.addItem( ing)
         # self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         # self.ui.recipeLabel.setScaledContents(True)
+        self.ui.sendButton.clicked.connect( self.sendComment)
+        self.ui.viewcomment.clicked.connect( self.viewComment )
         
-    def setRecipe(self, recipe):
-        pass
+    def sendComment(self):
+        comment = self.ui.comment_lineEdit.text()
+        COMMENT_MODEL.insertComment( self.current_user.getUsername(), self.recipe.getId(), comment )
+        self.ui.comment_lineEdit.setText("")
+        message = QMessageBox( None )
+        message.setText( "Comment sent!")
+        message.exec_()
+    
+    def viewComment( self ):
+        self.viewCommentPage.show()
+
+
         
 
 

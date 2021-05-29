@@ -8,17 +8,18 @@ from ViewRecipePage import ViewRecipe
 from CreateRecipePage import CreateRecipe
 from databasemodel.RecipeModel import *
 class RecipeInProfile(QWidget):
-    def __init__(self, recipe ):
+    def __init__(self, recipe, currentUser ):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.current_user = currentUser
         self.ui.recipeLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipeLabel.setScaledContents(True)
         self.ui.previewButton.clicked.connect( self.viewButtonClick )
         self.ui.editButton.clicked.connect( self.editButtonClick )
         self.setFixedSize( 445, 150)
         self.recipe = recipe
-        self.view = ViewRecipe( self.recipe )
+        self.view = ViewRecipe( self.recipe, self.current_user )
         self.createRecipe = CreateRecipe( self.recipe.getCreator().getUsername())
         self.createRecipe.setRecipe( recipe )
         self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))

@@ -41,7 +41,7 @@ class Profile(QWidget):
             self.blayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
-            self.recipes.append( RecipeInProfile( recipes_info[i]))
+            self.recipes.append( RecipeInProfile( recipes_info[i], self.user))
             self.blayout.addWidget(self.recipes[i])
             
         self.groupBox.setLayout(self.blayout)

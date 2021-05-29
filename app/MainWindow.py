@@ -43,7 +43,7 @@ class MainWindow( QMainWindow ):
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
                 self.current_user = user_info
                 self.setFixedSize(557,457)
-                self.mainmenu = Mainmenu()
+                self.mainmenu = Mainmenu( self.current_user )
                 self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
                 self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
                 self.setStyleSheet("background-color:rgb(255, 187, 178);")

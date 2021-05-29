@@ -8,10 +8,11 @@ from RecipeInMenuWidget import RecipeInMenu
 from databasemodel.RecipeModel import *
 
 class Mainmenu(QWidget):
-    def __init__(self):
+    def __init__(self, currentUser):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.current_user = currentUser
         self.ui.searchButton.setIcon(QPixmap("app/UI/search.png"))
         self.ui.recipepicLabel.setPixmap(QPixmap("app/UI/recipe-book.png"))
         self.ui.recipepicLabel.setScaledContents(True)
@@ -31,7 +32,7 @@ class Mainmenu(QWidget):
 
 
         for i in range(len(recipes_info)):
-            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
+            self.recipes.append( RecipeInMenu( recipes_info[i], self.current_user ) )
             self.blayout.addWidget(self.recipes[i])
             # self.glayout.append(QGridLayout())
             # self.glayout[i].addWidget(self.levelLabel,0,0)
@@ -50,7 +51,7 @@ class Mainmenu(QWidget):
             self.blayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
-            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
+            self.recipes.append( RecipeInMenu( recipes_info[i], self.current_user ) )
             self.blayout.addWidget(self.recipes[i])
     
     def search( self ):
@@ -61,7 +62,7 @@ class Mainmenu(QWidget):
             self.blayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
-            self.recipes.append( RecipeInMenu( recipes_info[i] ) )
+            self.recipes.append( RecipeInMenu( recipes_info[i], self.current_user ) )
             self.blayout.addWidget(self.recipes[i])
         
 

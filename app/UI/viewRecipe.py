@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ 
 
 ################################################################################
 ## Form generated from reading UI file 'recipe1.ui'
@@ -78,7 +78,7 @@ class Ui_Form(object):
         self.cal_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.scrollArea = QScrollArea(self.widget)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(90, 140, 360, 110))
+        self.scrollArea.setGeometry(QRect(90, 140, 310, 110))
         self.scrollArea.setWidgetResizable(True)
         # self.scrollAreaWidgetContents = QWidget()
         # self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
@@ -87,7 +87,7 @@ class Ui_Form(object):
         # self.verticalLayout.setObjectName(u"verticalLayout")
         self.ingredients_listWidget = QListWidget(self.scrollArea)
         self.ingredients_listWidget.setObjectName(u"ingredients_listWidget")
-        self.ingredients_listWidget.setGeometry(QRect(0, 0, 360, 109))
+        self.ingredients_listWidget.setGeometry(QRect(0, 0, 310, 109))
         self.ingredients_listWidget.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
         "color: black;")
         # self.ingredients_label = QLabel(self.scrollAreaWidgetContents)
@@ -106,21 +106,22 @@ class Ui_Form(object):
         self.instruction_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.scrollArea_2 = QScrollArea(self.widget)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setGeometry(QRect(90, 260, 360, 201))
+        self.scrollArea_2.setGeometry(QRect(90, 260, 310, 201))
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 360, 219))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 310, 219))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.recipe_label = QLabel(self.scrollAreaWidgetContents_2)
         self.recipe_label.setObjectName(u"recipe_label")
-        self.recipe_label.setMinimumSize(QSize(0, 195))
+        self.recipe_label.setMinimumSize(QSize(0,100))
         self.recipe_label.setMaximumSize(QSize(225, 16777215))
         self.recipe_label.setStyleSheet("color: #ff9300")
-
         self.verticalLayout_2.addWidget(self.recipe_label)
+        
 
+        
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.creator_label = QLabel(Form)
         self.creator_label.setObjectName(u"creator_label")
@@ -140,22 +141,53 @@ class Ui_Form(object):
 #         self.rating_label.setGeometry(QRect(40, 380, 111, 21))
 #         self.rating_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 # "border-radius: 15px;")
-#         self.comment_label = QLabel(Form)
-#         self.comment_label.setObjectName(u"comment_label")
-#         self.comment_label.setGeometry(QRect(40, 420, 81, 16))
-#         self.comment_label.setStyleSheet(u"background-color: rgb(255, 223, 202);")
-#         self.commet_lineEdit = QLineEdit(Form)
-#         self.commet_lineEdit.setObjectName(u"commet_lineEdit")
-#         self.commet_lineEdit.setGeometry(QRect(130, 420, 91, 21))
-#         self.commet_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.comment_label = QLabel(Form)
+        self.comment_label.setObjectName(u"comment_label")
+        self.comment_label.setGeometry(QRect(20, 380, 81, 21))
+        self.comment_label.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.comment_lineEdit = QLineEdit(Form)
+        self.comment_lineEdit.setObjectName(u"commet_lineEdit")
+        self.comment_lineEdit.setGeometry(QRect(20, 417, 220,80))
+        self.comment_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.viewcomment = QPushButton(Form)
+        self.viewcomment.setObjectName(u"viewcommnet")
+        self.viewcomment.setGeometry(QRect(130,507, 111, 31))
+        self.viewcomment.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"padding-top: 5px;\n"
+"color:black;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
+        self.sendButton = QPushButton(Form)
+        self.sendButton.setObjectName(u"sendButton")
+        self.sendButton.setGeometry(QRect(20,507, 91, 31))
+        self.sendButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
+"border:none;\n"
+"padding-top: 5px;\n"
+"color:black;\n"
+"border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color:rgb(255, 99, 0)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:rgb(255, 43, 14)\n"
+"}")
         self.widget.raise_()
         self.picture_label.raise_()
         self.creator_label.raise_()
         # self.rate_spinBox.raise_()
         # self.rating_label.raise_()
-        # self.comment_label.raise_()
-        # self.commet_lineEdit.raise_()
-
+        self.comment_label.raise_()
+        self.comment_lineEdit.raise_()
+        self.viewcomment.raise_()
+        self.sendButton.raise_()
         self.retranslateUi(Form)
 
         QMetaObject.connectSlotsByName(Form)
@@ -175,6 +207,7 @@ class Ui_Form(object):
         self.recipe_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#ff9300;\">TextLabel</span></p></body></html>", None))
         self.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Create by : </span></p></body></html>", None))
         # self.rating_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Rate this recipe :</span></p></body></html>", None))
-        # self.comment_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Comment :</span></p></body></html>", None))
+        self.comment_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300;\">Comment :</span></p></body></html>", None))
+        self.viewcomment.setText(QCoreApplication.translate("Form", u"view comment", None))
+        self.sendButton.setText(QCoreApplication.translate("Form", u"send", None))
     # retranslateUi
-
