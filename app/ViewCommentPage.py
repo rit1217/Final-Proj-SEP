@@ -15,9 +15,13 @@ class ViewComment(QWidget):
         self.ui.pushButton.clicked.connect( self.close )
         self.ui.inRecipe_label.setText( self.recipe.getName())
         self.ui.inCreator_label.setText( self.recipe.getCreator().getUsername())
+        self.updateComment()
 
     def updateComment( self ):
         allComment = COMMENT_MODEL.getCommentByRecipe( self.recipe.getId())
+        self.ui.comment_listWidget.clear()
+        for i in allComment:
+            self.ui.comment_listWidget.addItem( " @%s:\n%s\n" %(i[0], i[1]))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

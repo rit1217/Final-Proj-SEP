@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(690, 545)
+        Form.resize(720, 580)
         font = QFont()
         font.setPointSize(14)
         Form.setFont(font)
@@ -26,7 +26,7 @@ class Ui_Form(object):
 "")
         self.picture_label = QLabel(Form)
         self.picture_label.setObjectName(u"picture_label")
-        self.picture_label.setGeometry(QRect(30, 40, 201, 241))
+        self.picture_label.setGeometry(QRect(30, 60, 201, 201))
         self.picture_label.setAutoFillBackground(False)
         self.picture_label.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 "border-radius: 15px;")
@@ -34,7 +34,7 @@ class Ui_Form(object):
         self.picture_label.setAlignment(Qt.AlignCenter)
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(260, 40, 420, 481))
+        self.widget.setGeometry(QRect(260, 40, 420, 510))
         self.widget.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
 "border-radius: 15px;")
         self.inCal_label = QLabel(self.widget)
@@ -115,7 +115,7 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.recipe_label = QLabel(self.scrollAreaWidgetContents_2)
         self.recipe_label.setObjectName(u"recipe_label")
-        self.recipe_label.setMinimumSize(QSize(0,100))
+        self.recipe_label.setMinimumSize(QSize(0,20))
         self.recipe_label.setMaximumSize(QSize(225, 16777215))
         self.recipe_label.setStyleSheet("color: #ff9300")
         self.verticalLayout_2.addWidget(self.recipe_label)
@@ -145,10 +145,11 @@ class Ui_Form(object):
         self.comment_label.setObjectName(u"comment_label")
         self.comment_label.setGeometry(QRect(20, 380, 81, 21))
         self.comment_label.setStyleSheet(u"background-color: rgb(255, 223, 202);")
-        self.comment_lineEdit = QLineEdit(Form)
+        self.comment_lineEdit = QTextEdit(Form)
         self.comment_lineEdit.setObjectName(u"commet_lineEdit")
         self.comment_lineEdit.setGeometry(QRect(20, 417, 220,80))
         self.comment_lineEdit.setStyleSheet(u"background-color: rgb(255, 223, 202);")
+        self.comment_lineEdit.setLineWrapMode(QTextEdit.NoWrap)
         self.viewcomment = QPushButton(Form)
         self.viewcomment.setObjectName(u"viewcommnet")
         self.viewcomment.setGeometry(QRect(130,507, 111, 31))
