@@ -14,7 +14,7 @@ class UserModel:
     
     def updateUser( self, username, newInfo ):
         info = newInfo + (username,)
-        CURSOR.execute( "UPDATE User SET FIRST_NAME = '%s', LAST_NAME = '%s', HEIGHT = %d, WEIGHT = %d, BIRTH = '%s', GENDER = '%s' WHERE USERNAME = '%s'" %(info))
+        CURSOR.execute( "UPDATE User SET FIRST_NAME = '%s', LAST_NAME = '%s', HEIGHT = %d, WEIGHT = %d, GENDER = '%s' WHERE USERNAME = '%s'" %(info))
         CONNECTION.commit()
 
     def getUser( self, username ):

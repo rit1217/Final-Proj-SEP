@@ -55,7 +55,7 @@ class Ui_Form(object):
 
         self.gender_comboBox = QComboBox(self.widget)
         self.gender_comboBox.setObjectName(u"gender_comboBox")
-        self.gender_comboBox.setGeometry(QRect(110, 90, 71, 21))
+        self.gender_comboBox.setGeometry(QRect(110, 90, 90, 21))
         self.gender_comboBox.setStyleSheet(u"background-color: rgb(255, 223, 202);")
         self.gender_comboBox.addItems(["Female", "Male"])
 

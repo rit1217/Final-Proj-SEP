@@ -23,7 +23,6 @@ class Profile(QWidget):
         self.blayout = QHBoxLayout()
         self.vlayout = QVBoxLayout()
         self.groupBox =QGroupBox()
-        self.editPage = None
         self.ui.editButton.clicked.connect( self.editProfile )
 
 
@@ -32,8 +31,6 @@ class Profile(QWidget):
 
     def updateProfile( self, cur_user ):
         self.user = cur_user
-        self.editPage = ProfileEdit( self.user )
-
         self.ui.usernameLabel.setText(cur_user.getUsername())
         self.ui.nameLabel_2.setText(cur_user.getFirstName())
         self.ui.lastnameLabel_2.setText(cur_user.getLastName())
@@ -57,6 +54,7 @@ class Profile(QWidget):
         self.ui.recipeScrollArea.setWidgetResizable(True)
 
     def editProfile( self ):
+        self.editPage = ProfileEdit( self.user, self )
         self.editPage.show()
 
         
