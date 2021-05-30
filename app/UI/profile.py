@@ -18,7 +18,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(557, 457)
+        Form.resize(710, 465)
         Form.setStyleSheet(u"background-color:rgb(255, 187, 178)")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
@@ -36,7 +36,7 @@ class Ui_Form(object):
         self.usernameLabel.setStyleSheet(u"color:black")
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(270, 30, 271, 188))
+        self.frame.setGeometry(QRect(340, 30, 271, 188))
         self.frame.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -122,40 +122,43 @@ class Ui_Form(object):
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(20, 250, 411, 210))
+        self.widget_2.setGeometry(QRect(20, 250, 581, 210))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:15px")
         self.recipeScrollArea = QScrollArea(self.widget_2)
         self.recipeScrollArea.setObjectName(u"recipeScrollArea")
-        self.recipeScrollArea.setGeometry(QRect(30, 10, 361, 190))
+        self.recipeScrollArea.setGeometry(QRect(15, 10, 550, 190))
         self.recipeScrollArea.setStyleSheet(u"background-color:rgb(255, 187, 178);\n"
 "border-radius:15px;")
         self.recipeScrollArea.setWidgetResizable(False)
+
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 361, 150))
         self.recipeScrollArea.setWidget(self.scrollAreaWidgetContents)
+        
         self.piclabel = QLabel(Form)
         self.piclabel.setObjectName(u"piclabel")
         self.piclabel.setGeometry(QRect(60, 20, 151, 151))
-
+        
+        
         self.editButton = QPushButton(Form)
         self.editButton.setObjectName(u"editButton")
-        self.editButton.setGeometry(QRect(450, 330, 91, 32))
+        self.editButton.setGeometry(QRect(610, 330, 91, 32))
         self.editButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"
-"	background-color:rgb(255, 99, 0)\n"
+"    background-color:rgb(255, 99, 0)\n"
 "}\n"
 "QPushButton:pressed{\n"
-"	background-color:rgb(255, 43, 14)\n"
+"    background-color:rgb(255, 43, 14)\n"
 "}")
-
+        
         self.refreshButton = QPushButton(Form)
         self.refreshButton.setObjectName(u"refreshButton")
-        self.refreshButton.setGeometry(QRect(450, 370, 91, 32))
+        self.refreshButton.setGeometry(QRect(610, 370, 91, 32))
         self.refreshButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
@@ -169,7 +172,7 @@ class Ui_Form(object):
 
         self.backButton = QPushButton(Form)
         self.backButton.setObjectName(u"backButton")
-        self.backButton.setGeometry(QRect(450, 410, 91, 32))
+        self.backButton.setGeometry(QRect(610, 410, 91, 32))
         self.backButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "border-radius: 10px;\n"
@@ -188,7 +191,6 @@ class Ui_Form(object):
         self.backButton.raise_()
         self.refreshButton.raise_()
         self.editButton.raise_()
-
 
         self.retranslateUi(Form)
 

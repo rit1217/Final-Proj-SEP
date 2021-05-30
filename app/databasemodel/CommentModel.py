@@ -14,5 +14,10 @@ class CommentModel:
         result = CURSOR.fetchall()
         CONNECTION.commit()
         return result
+    
+    def deleteByRecipe( self, recipe_id ):
+        statement = "DELETE FROM Comment WHERE RECIPE_ID = %d" %(recipe_id)
+        CURSOR.execute( statement )
+        CONNECTION.commit()
 
 COMMENT_MODEL = CommentModel()

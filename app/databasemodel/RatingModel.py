@@ -31,5 +31,10 @@ class RatingModel:
             return rating[0]
         else:
             return rating
+    
+    def deleteByRecipe( self, recipe_id ):
+        statement = "DELETE FROM Rating WHERE RECIPE_ID = %d" %(recipe_id)
+        CURSOR.execute( statement )
+        CONNECTION.commit()
         
 RATING_MODEL = RatingModel()

@@ -84,8 +84,13 @@ class RecipeModel:
         statement = "SELECT IMAGE FROM Recipe WHERE RECIPE_ID = %d"%(recipe_id)
         CURSOR.execute( statement )
         blobImage = CURSOR.fetchone()
-        CONNECTION.commit
+        CONNECTION.commit()
         return blobImage
+    
+    def deleteById( self, recipe_id ):
+        statement = "DELETE FROM Recipe WHERE RECIPE_ID = %d" %(recipe_id)
+        CURSOR.execute( statement )
+        CONNECTION.commit()
 
 
 RECIPE_MODEL = RecipeModel()

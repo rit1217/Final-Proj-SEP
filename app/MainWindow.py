@@ -57,7 +57,7 @@ class MainWindow( QMainWindow ):
         self.profile = Profile()
         self.profile.ui.backButton.clicked.connect( self.prof_backButton )
         # self.profile.show()
-        self.setFixedSize(557,465)
+        self.setFixedSize(710,465)
         self.profile.updateProfile( self.current_user )
         self.profile.ui.refreshButton.clicked.connect( self.profile.refresh )
 

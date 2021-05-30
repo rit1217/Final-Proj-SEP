@@ -13,7 +13,7 @@ class Profile(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
         self.ui = Ui_Form()
-        self.setFixedSize( 557,465)
+        self.setFixedSize( 710,465)
         self.ui.setupUi(self)
         self.ui.piclabel.setPixmap(QPixmap("app/UI/pngegg.png"))
         self.ui.piclabel.setScaledContents(True)
@@ -38,14 +38,15 @@ class Profile(QWidget):
         self.ui.weightLabel_2.setText(str(cur_user.getWeight()))
         self.recipes = []
         recipes_info = RECIPE_MODEL.getRecipeFromCreator( self.user.getUsername() )
-        for i in reversed(range( self.blayout.count())):
-            self.blayout.itemAt(i).widget().setParent(None)
+        for i in reversed(range( self.vlayout.count())):
+            self.vlayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
-            self.recipes.append( RecipeInProfile( recipes_info[i], self.user))
-            self.blayout.addWidget(self.recipes[i])
+            self.recipes.append( RecipeInProfile( recipes_info[i], self.user, self))
+            self.vlayout.addWidget(self.recipes[i])
+
             
-        self.groupBox.setLayout(self.blayout)
+        self.groupBox.setLayout(self.vlayout)
         self.ui.recipeScrollArea.setWidget(self.groupBox)
         self.ui.recipeScrollArea.setStyleSheet("background-color:rgb(255, 187, 178)\n")
         self.ui.recipeScrollArea.setWidgetResizable(True)
