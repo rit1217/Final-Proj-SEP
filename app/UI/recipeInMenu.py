@@ -50,7 +50,7 @@ class Ui_Form(object):
 "}")
         self.recipenameLabel = QLabel(Form)
         self.recipenameLabel.setObjectName(u"recipenameLabel")
-        self.recipenameLabel.setGeometry(QRect(170, 0, 180, 41))
+        self.recipenameLabel.setGeometry(QRect(170, 0, 210, 41))
 
         self.ratingLabel = QLabel(Form)
         self.ratingLabel.setObjectName(u"recipeLabel")
@@ -59,11 +59,6 @@ class Ui_Form(object):
         self.recipenameLabel.setStyleSheet(u"color:black;")
         self.recipeLabel.setWordWrap( True )
         self.ratingLabel.setStyleSheet( u"color:blue;")
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(357, 7, 3, 120))
-        self.widget.setStyleSheet(u"background-color:rgb(255, 127, 86)")
-
         self.retranslateUi(Form)
 
         QMetaObject.connectSlotsByName(Form)

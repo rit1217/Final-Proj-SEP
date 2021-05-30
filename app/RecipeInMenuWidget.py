@@ -20,19 +20,7 @@ class RecipeInMenu(QWidget):
         self.ui.previewButton.clicked.connect( self.viewButtonClick )
         self.recipe = recipe
         self.view = ViewRecipe( self.recipe, self.current_user )
-        if len(self.recipe.getName()) > 13:
-            temp_name = self.recipe.getName()
-            replace_space = False
-            for i in range( 12, 5, -1):
-                if self.recipe.getName()[i] == ' ':
-                    temp_name = temp_name[:i] + '\n              ' + temp_name[i+1:]
-                    replace_space = True
-                    break
-            if not replace_space:
-                temp_name = self.recipe.getName()[:13] + "\n              " + self.recipe.getName()[13:]
-            self.ui.recipenameLabel.setText("Recipe: %s"%(temp_name))
-        else:
-            self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
+        self.ui.recipenameLabel.setText("Recipe: %s"%(self.recipe.getName()))
         self.ui.ratingLabel.setText("Rating: %.1f" %(RATING_MODEL.getAverageRating( self.recipe.getId())))
         self.ui.levelLabel.setText( "Difficulty: %s" %(self.recipe.getDifficulty()))
         self.ui.creatorLabel.setText("Created by: %s" %(self.recipe.getCreator().getUsername()))

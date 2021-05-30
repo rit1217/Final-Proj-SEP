@@ -42,7 +42,7 @@ class MainWindow( QMainWindow ):
         else:
             if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
                 self.current_user = user_info
-                self.setFixedSize(557,457)
+                self.setFixedSize(557,780)
                 self.mainmenu = Mainmenu( self.current_user )
                 self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
                 self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
@@ -72,7 +72,7 @@ class MainWindow( QMainWindow ):
         self.mainmenu = Mainmenu(self.current_user)
         self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
         self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
-        self.setFixedSize( 557, 480)
+        self.setFixedSize(557,780)
         self.setCentralWidget( self.mainmenu )
 
 if __name__ == "__main__":

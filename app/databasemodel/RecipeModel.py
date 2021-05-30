@@ -73,6 +73,26 @@ class RecipeModel:
         for i in recipes:
             res.append( Recipe(i))
         return res
+    
+    def searchRecipeByMaxCal( self, cal ):
+        statement = "SELECT * FROM Recipe WHERE CALORIES <= %f"%(cal)
+        CURSOR.execute( statement )
+        res = []
+        recipes = CURSOR.fetchall()
+        CONNECTION.commit()
+        for i in recipes:
+            res.append( Recipe(i))
+        return res
+    
+    def searchRecipeByMinCal( self, cal ):
+        statement = "SELECT * FROM Recipe WHERE CALORIES >= %f"%(cal)
+        CURSOR.execute( statement )
+        res = []
+        recipes = CURSOR.fetchall()
+        CONNECTION.commit()
+        for i in recipes:
+            res.append( Recipe(i))
+        return res
 
     def insertImageById( self, image, recipe_id ):
         statement = "UPDATE Recipe SET IMAGE = ? WHERE RECIPE_ID = %d"%(recipe_id)
@@ -91,6 +111,7 @@ class RecipeModel:
         statement = "DELETE FROM Recipe WHERE RECIPE_ID = %d" %(recipe_id)
         CURSOR.execute( statement )
         CONNECTION.commit()
+    
 
 
 RECIPE_MODEL = RecipeModel()
