@@ -21,7 +21,7 @@ class Ui_Form(object):
         Form.setStyleSheet(u"background-color:rgb(255, 187, 178)")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(30, 10, 251, 150))
+        self.widget.setGeometry(QRect(30, 10, 291, 150))
         self.widget.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:20px")
         self.searchButton = QPushButton(self.widget)
@@ -60,7 +60,7 @@ class Ui_Form(object):
         self.widget1 = QWidget(self.widget)
         self.widget1.setObjectName(u"widget1")
         self.widget1.setGeometry(QRect(90, 50, 134, 88))
-        self.verticalLayout = QVBoxLayout(self.widget1)
+        self.verticalLayout =QVBoxLayout(self.widget1)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.nameRadioButton = QRadioButton(self.widget1)
@@ -89,12 +89,12 @@ class Ui_Form(object):
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(30, 140, 490, 490))
+        self.widget_2.setGeometry(QRect(30, 170, 490, 480))
         self.widget_2.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px")
         self.recipemainScrollArea = QScrollArea(self.widget_2)
         self.recipemainScrollArea.setObjectName(u"recipemainScrollArea")
-        self.recipemainScrollArea.setGeometry(QRect(10, 10, 470, 470))
+        self.recipemainScrollArea.setGeometry(QRect(10, 20, 470, 440))
         self.recipemainScrollArea.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:20px;")
         self.recipemainScrollArea.setWidgetResizable(True)
@@ -104,10 +104,10 @@ class Ui_Form(object):
         self.recipemainScrollArea.setWidget(self.scrollAreaWidgetContents)
         self.recipepicLabel = QLabel(Form)
         self.recipepicLabel.setObjectName(u"recipepicLabel")
-        self.recipepicLabel.setGeometry(QRect(50, 640, 141, 131))
+        self.recipepicLabel.setGeometry(QRect(50, 650, 141, 131))
         self.clickcreateButton = QPushButton(Form)
         self.clickcreateButton.setObjectName(u"clickcreateButton")
-        self.clickcreateButton.setGeometry(QRect(260, 710, 113, 32))
+        self.clickcreateButton.setGeometry(QRect(260, 730, 113, 32))
         self.clickcreateButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
@@ -123,7 +123,7 @@ class Ui_Form(object):
 
         self.refreshButton = QPushButton(Form)
         self.refreshButton.setObjectName(u"refreshButton")
-        self.refreshButton.setGeometry(QRect(400, 710, 113, 32))
+        self.refreshButton.setGeometry(QRect(400, 730, 113, 32))
         self.refreshButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
@@ -138,7 +138,7 @@ class Ui_Form(object):
 "}")
         self.createLabel = QLabel(Form)
         self.createLabel.setObjectName(u"createLabel")
-        self.createLabel.setGeometry(QRect(260, 650, 181, 41))
+        self.createLabel.setGeometry(QRect(300, 670, 181, 41))
         self.createLabel.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;\n"
 "color:black;")
@@ -179,7 +179,7 @@ class Ui_Form(object):
         self.nameRadioButton.setText(QCoreApplication.translate("Form", u"Name", None))
         self.maximumRadioButton.setText(QCoreApplication.translate("Form", u"Maximum Calories", None))
         self.minimumRadioButton.setText(QCoreApplication.translate("Form", u"Minimum Calories", None))
-        self.creatorRadioButton.setText(QCoreApplication.translate("Form", u"Creator", None))
+        self.creatorRadioButton.setText(QCoreApplication.translate("Form", u"Creator    ", None))
         self.recipepicLabel.setText(QCoreApplication.translate("Form", u"         TextLabel", None))
         self.clickcreateButton.setText(QCoreApplication.translate("Form", u"Create", None))
         self.createLabel.setText(QCoreApplication.translate("Form", u"     Create your own recipe", None))
@@ -188,4 +188,5 @@ class Ui_Form(object):
         self.refreshButton.setText(QCoreApplication.translate("Form", u"Refresh", None))
 
     # retranslateUi
+
 
