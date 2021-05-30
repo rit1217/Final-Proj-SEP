@@ -73,6 +73,16 @@ class RecipeModel:
         for i in recipes:
             res.append( Recipe(i))
         return res
+
+    def searchRecipeByCreator( self, keyword ):
+        statement = "SELECT * FROM Recipe WHERE CREATOR LIKE '%" + keyword + "%'"
+        CURSOR.execute(  statement)
+        res = []
+        recipes = CURSOR.fetchall()
+        CONNECTION.commit()
+        for i in recipes:
+            res.append( Recipe(i))
+        return res
     
     def searchRecipeByMaxCal( self, cal ):
         statement = "SELECT * FROM Recipe WHERE CALORIES <= %f"%(cal)

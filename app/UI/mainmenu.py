@@ -21,7 +21,7 @@ class Ui_Form(object):
         Form.setStyleSheet(u"background-color:rgb(255, 187, 178)")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(30, 10, 251, 121))
+        self.widget.setGeometry(QRect(30, 10, 251, 150))
         self.widget.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:20px")
         self.searchButton = QPushButton(self.widget)
@@ -59,7 +59,7 @@ class Ui_Form(object):
         self.serchbyLabel.setStyleSheet(u"color:black")
         self.widget1 = QWidget(self.widget)
         self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(90, 50, 134, 66))
+        self.widget1.setGeometry(QRect(90, 50, 134, 88))
         self.verticalLayout = QVBoxLayout(self.widget1)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -80,6 +80,12 @@ class Ui_Form(object):
         self.minimumRadioButton.setStyleSheet(u"color:black")
 
         self.verticalLayout.addWidget(self.minimumRadioButton)
+
+        self.creatorRadioButton = QRadioButton(self.widget1)
+        self.creatorRadioButton.setObjectName(u"creatorRadioButton")
+        self.creatorRadioButton.setStyleSheet(u"color:black")
+
+        self.verticalLayout.addWidget(self.creatorRadioButton)
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
@@ -173,6 +179,7 @@ class Ui_Form(object):
         self.nameRadioButton.setText(QCoreApplication.translate("Form", u"Name", None))
         self.maximumRadioButton.setText(QCoreApplication.translate("Form", u"Maximum Calories", None))
         self.minimumRadioButton.setText(QCoreApplication.translate("Form", u"Minimum Calories", None))
+        self.creatorRadioButton.setText(QCoreApplication.translate("Form", u"Creator", None))
         self.recipepicLabel.setText(QCoreApplication.translate("Form", u"         TextLabel", None))
         self.clickcreateButton.setText(QCoreApplication.translate("Form", u"Create", None))
         self.createLabel.setText(QCoreApplication.translate("Form", u"     Create your own recipe", None))

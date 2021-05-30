@@ -61,6 +61,8 @@ class Mainmenu(QWidget):
         search_text = self.ui.searchEdit.text()
         if self.ui.nameRadioButton.isChecked():
             recipes_info = RECIPE_MODEL.searchRecipeByName( search_text )
+        elif self.ui.creatorRadioButton.isChecked():
+            recipes_info = RECIPE_MODEL.searchRecipeByCreator( search_text )
         else:
             try:
                 search_text = float( search_text )
@@ -74,12 +76,12 @@ class Mainmenu(QWidget):
             else:
                 recipes_info = RECIPE_MODEL.searchRecipeByMinCal( float(search_text ))
 
-        for i in reversed(range( self.blayout.count())):
-            self.blayout.itemAt(i).widget().setParent(None)
+        for i in reversed(range( self.vlayout.count())):
+            self.vlayout.itemAt(i).widget().setParent(None)
 
         for i in range(len(recipes_info)):
             self.recipes.append( RecipeInMenu( recipes_info[i], self.current_user ) )
-            self.blayout.addWidget(self.recipes[i])
+            self.vlayout.addWidget(self.recipes[i])
         
 
 
