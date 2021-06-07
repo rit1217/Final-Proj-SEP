@@ -63,6 +63,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = Profile()
     w.setFixedSize(557,465)
-    w.setStyleSheet( "background-color:rgb(255, 187, 178)")
+    w.setStyleSheet( "background-color:rgb(255, 255, 255)")
     w.show()
     sys.exit(app.exec_())
