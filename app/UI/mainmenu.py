@@ -18,7 +18,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(557, 790)
-        Form.setStyleSheet(u"background-color:rgb(255, 187, 178)")
+        Form.setStyleSheet(u"background-color:rgb(255, 255, 255)")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(30, 10, 291, 150))
