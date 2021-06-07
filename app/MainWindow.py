@@ -16,7 +16,7 @@ class MainWindow( QMainWindow ):
     def __init__( self ):
         QMainWindow.__init__( self, None )
         self.setFixedSize( 455, 305)
-        self.setStyleSheet("background-color: rgb(255, 136, 38)")
+        self.setStyleSheet("background-color: rgb(255,255, 255)")
         self.login = Login()
         self.login.ui.signButton.clicked.connect( self.login_signupButton )
         self.login.ui.logButton.clicked.connect( self.login_loginButton )
@@ -46,7 +46,7 @@ class MainWindow( QMainWindow ):
                 self.mainmenu = Mainmenu( self.current_user )
                 self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
                 self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
-                self.setStyleSheet("background-color:rgb(255, 187, 178);")
+                self.setStyleSheet("background-color:rgb(255, 255, 255);")
                 self.setCentralWidget( self.mainmenu )
             else:
                 message.setText( "Wrong password!")
