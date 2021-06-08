@@ -36,7 +36,7 @@ class Ui_Form(object):
         self.usernameLabel.setStyleSheet(u"color:black")
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(340, 30, 271, 188))
+        self.frame.setGeometry(QRect(340, 20, 271, 220))
         self.frame.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
 "border-radius:20px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -81,8 +81,13 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.weightLabel, 5, 0, 1, 1)
 
+        self.calLabel = QLabel(self.frame)
+        self.calLabel.setObjectName(u"calLabel")
+        self.calLabel.setStyleSheet(u"color:black")
 
-        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 6, 1)
+        self.gridLayout.addWidget(self.calLabel, 6, 0, 1, 1)
+
+        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 7, 1)
 
         self.nameLabel_2 = QLabel(self.frame)
         self.nameLabel_2.setObjectName(u"nameLabel_2")
@@ -119,6 +124,12 @@ class Ui_Form(object):
         self.weightLabel_2.setStyleSheet(u"color:black")
 
         self.gridLayout_2.addWidget(self.weightLabel_2, 5, 1, 1, 1)
+
+        self.calLabel_2 = QLabel(self.frame)
+        self.calLabel_2.setObjectName(u"calLabel_2")
+        self.calLabel_2.setStyleSheet(u"color:black")
+
+        self.gridLayout_2.addWidget(self.calLabel_2, 6, 1, 1, 1)
 
         self.widget_2 = QWidget(Form)
         self.widget_2.setObjectName(u"widget_2")
@@ -208,12 +219,15 @@ class Ui_Form(object):
         self.genderLabel.setText(QCoreApplication.translate("Form", u"Gender:", None))
         self.heightLabel.setText(QCoreApplication.translate("Form", u"Height:", None))
         self.weightLabel.setText(QCoreApplication.translate("Form", u"Weight:", None))
+        self.calLabel.setText(QCoreApplication.translate("Form", u"Calorie needs:", None))
         self.nameLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.lastnameLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.dateLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.genderLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.heightLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.weightLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.calLabel_2.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+
         self.backButton.setText(QCoreApplication.translate("Form", u"Back", None))
         self.refreshButton.setText(QCoreApplication.translate("Form", u"Refresh", None))
         self.editButton.setText(QCoreApplication.translate("Form", u"Edit", None))

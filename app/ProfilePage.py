@@ -9,6 +9,7 @@ from RegisterPage import Register
 from ProfileEditPage import ProfileEdit
 from Constant import *
 from databasemodel.RecipeModel import *
+from datetime import date
 
 class Profile(QWidget):
     def __init__(self):
@@ -37,7 +38,16 @@ class Profile(QWidget):
         self.ui.dateLabel_2.setText(cur_user.getBirthDate())
         self.ui.genderLabel_2.setText(cur_user.getGender())
         self.ui.heightLabel_2.setText(str(cur_user.getHeight()))
-        self.ui.weightLabel_2.setText(str(cur_user.getWeight()))
+        age = int(date.today().strftime("%Y")) - int(cur_user.getBirthDate()[-4:])
+        if cur_user.getGender() == "Male":
+            bmr = 10 * cur_user.getWeight() + 6.25 * cur_user.getHeight() - 5 * age + 5
+        else:
+            bmr = 10 * cur_user.getWeight() + 6.25 * cur_user.getHeight() - 5 * age - 161
+        cal_need = bmr * 1.375
+        cal_need = int(cal_need)
+        self.ui.calLabel_2.setText( str(cal_need) + " kcal")
+        print( cal_need )
+
         self.recipes = []
         recipes_info = RECIPE_MODEL.getRecipeFromCreator( self.user.getUsername() )
         for i in reversed(range( self.vlayout.count())):
