@@ -111,7 +111,6 @@ class Ui_Form(object):
         self.clickcreateButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
-"color:black;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -127,7 +126,6 @@ class Ui_Form(object):
         self.refreshButton.setStyleSheet(u"QPushButton{background-color:rgb(255, 127, 86);\n"
 "border:none;\n"
 "padding-top: 5px;\n"
-"color:black;\n"
 "border-radius: 10px;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -140,8 +138,7 @@ class Ui_Form(object):
         self.createLabel.setObjectName(u"createLabel")
         self.createLabel.setGeometry(QRect(300, 670, 181, 41))
         self.createLabel.setStyleSheet(u"background-color:rgb(255, 127, 86);\n"
-"border-radius:20px;\n"
-"color:black;")
+"border-radius:20px;\n")
         self.widget_3 = QWidget(Form)
         self.widget_3.setObjectName(u"widget_3")
         self.widget_3.setGeometry(QRect(350, 40, 151, 51))

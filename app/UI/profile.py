@@ -128,7 +128,7 @@ class Ui_Form(object):
         self.recipeScrollArea = QScrollArea(self.widget_2)
         self.recipeScrollArea.setObjectName(u"recipeScrollArea")
         self.recipeScrollArea.setGeometry(QRect(15, 10, 550, 190))
-        self.recipeScrollArea.setStyleSheet(u"background-color:rgb(255, 187, 178);\n"
+        self.recipeScrollArea.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:15px;")
         self.recipeScrollArea.setWidgetResizable(False)
 
@@ -140,6 +140,8 @@ class Ui_Form(object):
         self.piclabel = QLabel(Form)
         self.piclabel.setObjectName(u"piclabel")
         self.piclabel.setGeometry(QRect(60, 20, 151, 151))
+        self.piclabel.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
+        "border-radius:15px")
         
         
         self.editButton = QPushButton(Form)

@@ -5,6 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import QPixmap
 from UI.login import Ui_Form
 from databasemodel.UserModel import *
+from passlib.hash import pbkdf2_sha256
 
 class Login(QWidget):
     def __init__(self):
@@ -27,6 +28,19 @@ class Login(QWidget):
     
     def clearPassword( self ):
         self.ui.passwordEdit.setText( "")
+    
+    def verifyLogin( self ):
+        usr_ent_username = self.getUserEnter()["username"]
+        usr_ent_password = self.getUserEnter()["password"]
+        user_info = USER_MODEL.getUser( usr_ent_username )
+
+        if user_info == None:
+            return "User not found"
+
+        if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
+            return user_info
+        else:
+            return "Wrong password"
 
 
 if __name__ == "__main__":

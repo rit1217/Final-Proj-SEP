@@ -22,7 +22,7 @@ class Ui_Form(object):
         self.widget2 = QWidget(Form)
         self.widget2.setObjectName(u"widget2")
         self.widget2.setGeometry(QRect(30, 30, 401, 251))
-        self.widget2.setStyleSheet(u"background-color:rgb(255, 187, 178);\n"
+        self.widget2.setStyleSheet(u"background-color:rgb(255, 186, 141);\n"
 "border-radius:10px;\n"
 "")
         self.passwordLabel = QLabel(self.widget2)
@@ -81,7 +81,7 @@ class Ui_Form(object):
         self.memberLabel.setFont(font2)
         self.memberLabel.setStyleSheet(u"QLabel{\n"
 "border:5px solid rgb(255, 127, 86);\n"
-"background-color:rgb(255, 187, 178);\n"
+"background-color:rgb(255, 186, 141);\n"
 "padding-right:10px;\n"
 "padding-bottom:5px;\n"
 "color:black;\n"
@@ -91,7 +91,7 @@ class Ui_Form(object):
         self.fork = QLabel(self.widget2)
         self.fork.setObjectName(u"fork")
         self.fork.setGeometry(QRect(320, 70, 60, 91))
-        self.fork.setStyleSheet(u"background-color: rgb(255, 187, 178)")
+        self.fork.setStyleSheet(u"background-color: rgb(255, 186, 141)")
         self.logButton = QPushButton(self.widget2)
         self.logButton.setObjectName(u"logButton")
         self.logButton.setGeometry(QRect(200, 200, 113, 32))
@@ -133,7 +133,7 @@ class Ui_Form(object):
         self.Spoon = QLabel(self.widget2)
         self.Spoon.setObjectName(u"Spoon")
         self.Spoon.setGeometry(QRect(20, 70, 71, 91))
-        self.Spoon.setStyleSheet(u"background-color: rgb(255, 187, 178)")
+        self.Spoon.setStyleSheet(u"background-color: rgb(255, 186, 141)")
         self.Spoon.setPixmap(QPixmap(u":/newPrefix/spoon.png"))
         self.Spoon.setScaledContents(True)
 

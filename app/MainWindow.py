@@ -31,27 +31,24 @@ class MainWindow( QMainWindow ):
         self.register.show()
 
     def login_loginButton( self ):
-        usr_ent_username = self.login.getUserEnter()["username"]
-        usr_ent_password = self.login.getUserEnter()["password"]
-        user_info = USER_MODEL.getUser( usr_ent_username )
         message = QMessageBox( None)
-
-        if user_info == None :
+        user = self.login.verifyLogin()
+        if user == "User not found" :
             message.setText( "Wrong username!")
             message.exec_()
         else:
-            if pbkdf2_sha256.verify( usr_ent_password, user_info.getPassword() ):
-                self.current_user = user_info
+            if user == "Wrong password":
+                message.setText( "Wrong password!")
+                self.login.clearPassword()
+                message.exec_()
+            else:
+                self.current_user = user
                 self.setFixedSize(557,790)
                 self.mainmenu = Mainmenu( self.current_user )
                 self.mainmenu.ui.clickprofileButton.clicked.connect( self.main_profileButton)
                 self.mainmenu.ui.clickcreateButton.clicked.connect( self.main_createButton)
                 self.setStyleSheet("background-color:rgb(255, 255, 255);")
                 self.setCentralWidget( self.mainmenu )
-            else:
-                message.setText( "Wrong password!")
-                self.login.clearPassword()
-                message.exec_()
 
     def main_profileButton( self ):
         self.profile = Profile()
