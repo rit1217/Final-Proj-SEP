@@ -48,7 +48,7 @@ class Ui_Form(object):
         self.comment_listWidget = QListWidget(self.scrollArea)
         self.comment_listWidget.setObjectName(u"comment_listWidget")
         self.comment_listWidget.setGeometry(QRect(0, 0, 441, 181))
-        self.comment_listWidget.setStyleSheet(u"background-color: rgb(255, 223, 202);\n"
+        self.comment_listWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
         "color: black;")
         self.pushButton = QPushButton(Form)
         self.pushButton.setObjectName(u"pushButton")

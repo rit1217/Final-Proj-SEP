@@ -18,7 +18,7 @@ class ViewRecipe(QWidget):
         self.recipe = recipe
         self.current_user = currentUser
         self.viewCommentPage = ViewComment( self.recipe )
-        self.ui.creator_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:14pt; color:#ff9300; border-radius: 15px;\">Create by : %s</span></p></body></html>" %self.recipe.getCreator().getUsername()))
+        self.ui.creator_label.setText("Create by : %s" %self.recipe.getCreator().getUsername())
         self.ui.inCal_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#000000;\">%s KCAL</span></p></body></html>"%str(self.recipe.getCalories())))
         self.ui.inLevel_label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" color:#000000;\">%s</span></p></body></html>"%self.recipe.getDifficulty()))
         self.ui.name_label.setText(self.recipe.getName())
